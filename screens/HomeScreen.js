@@ -1,18 +1,84 @@
-import { View, Pressable ,Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
+import {ActivityIndicator, View, Pressable ,Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
 import React, { useEffect, useLayoutEffect,useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
-import { auth } from '../firebase';
+import Logo from '../assets/logo.png'
+import Categories from '../components/Categories';
+import { auth, db } from '../firebase';
+import ProductCard from '../components/ProductCard';
+
 
 
 const HomeScreen = () => {
     const navigation = useNavigation()
+    const [featuredCategories, setFeaturedCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [mobiles,setMobiles] = useState([])
+    const [gadgets,setGadgets] = useState([])
+    const [laptops,setLaptops] = useState([])
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false
         })
     }, [])
+
+    const getMobiles = async ()=>{
+        
+            await db.collection('AllProducts').where('productType','==','Mobile')
+            .onSnapshot(querySnapshot => {
+            const mobile = [];
+            querySnapshot.forEach(documentSnapshot => {
+                mobile.push({
+                    ...documentSnapshot.data(),
+                    id: documentSnapshot.id,
+                })
+            });
+            // setFilteredDataSource(mobile);
+            setMobiles(mobile);
+            setLoading(false);
+            console.log(mobile)
+        });
+    }
+
+    const getGadgets = async ()=>{       
+        await db.collection('AllProducts').where('productType','==','Gadgets')
+        .onSnapshot(querySnapshot => {
+        const gadget = [];
+        querySnapshot.forEach(documentSnapshot => {
+            gadget.push({
+                ...documentSnapshot.data(),
+                id: documentSnapshot.id,
+            })
+        });
+        // setFilteredDataSource(mobile);
+        setGadgets(gadget);
+        setLoading(false);
+    });
+}
+    const getLaptops = async ()=>{       
+        await db.collection('AllProducts').where('productType','==','Laptop')
+        .onSnapshot(querySnapshot => {
+        const laptop = [];
+        querySnapshot.forEach(documentSnapshot => {
+            laptop.push({
+                ...documentSnapshot.data(),
+                id: documentSnapshot.id,
+            })
+        });
+        // setFilteredDataSource(mobile);
+        setLaptops(laptop);
+        setLoading(false);
+    });
+}
+
+    useEffect(()=>{
+        getMobiles()
+        getGadgets()
+        getLaptops()
+    },[])
+
 
     const HandleSignout = ()=>{
         auth.signOut()
@@ -21,28 +87,44 @@ const HomeScreen = () => {
     }).catch(error=>alert(error.message));
 }
   
+if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#0e9c99" />
+      </View>
+    );
+  }
+
+//   if (errorMessage) {
+//     return (
+//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',color:'white' }}>
+//         <Text style={{ fontSize: 18}}>
+//           Error fetching data... Check your network connection!
+//         </Text>
+//       </View>
+//     );
+//   }
+
 
     return (
         <SafeAreaView className="bg-white pt-5">
             {/* header  */}
             <View className="flex-row pb-3 items-center mx-4 space-x-2">
                 <Image
-                    source={{
-                        uri: "https://links.papareact.com/wru"
-                    }}
+                    source={Logo}
                     className="h-7 w-7 bg-gray-300 p-4 rounded-full"
                 />
 
                 <View className="flex-1">
-                    <Text className="font-bold text-gray-400 text-xs">Deliver Now!</Text>
+                    <Text className="font-bold text-gray-400 text-xs">Welcome!</Text>
                     <Text className="font-bold text-xl">
-                        Current Location
-                        <AntDesign name="down" size={18} color="#00CCBB" />
+                        Tech Store
+                        <AntDesign name="down" size={18} color="#FCB424" />
                     </Text>
                 </View>
                 
                 <Pressable onPress={HandleSignout}>
-                <AntDesign name="user" size={35} color="#00CCBB" />
+                <AntDesign name="logout" size={30} color="#FCB424" />
                 </Pressable>
             </View>
 
@@ -51,18 +133,64 @@ const HomeScreen = () => {
                 <View className="flex-row space-x-2 flex-1 bg-gray-200 p-3">
                     <AntDesign name="search1" color="gray" size={20} />
                     <TextInput
-                        placeholder='Restaurants and cuisines'
+                        placeholder='Mobile Laptop and Gadgets'
                         keyboardType='default'
                     />
                 </View>
 
-                <AntDesign name="bars" size={30} color="#00CCBB" />
+                <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="#FCB424" />
             </View>
 
             {/* Body */}
+            <ScrollView
+                className="bg-gray-100"
+                contentContainerStyle={{
+                    paddingBottom: 100
+                }}
+            >
+                {/* Categories */}
+                <Categories />
+
+                {/* Mobile  */}
+
+                  {mobiles &&  
+                  <>
+                  <View className="mt-4 flex-row items-center justify-between px-4">
+                    <Text className="font-bold text-lg text-[#4EB1B3]">Mobile</Text>
+                <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                </View>
+                
+                <ProductCard data={mobiles} />
+                  </>
+                }
+
+                {/* laptops  */}
+                {laptops && 
+               <>
+               <View className="mt-4 flex-row items-center justify-between px-4">
+                    <Text className="font-bold text-lg text-[#4EB1B3]">Laptops</Text>
+                    <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                </View>
+                <ProductCard data={laptops} />
+               </>
+            }
 
 
-
+                {/* Gadgets */}
+                
+               {gadgets && 
+               <>
+               <View className="mt-4 flex-row items-center justify-between px-4">
+                    <Text className="font-bold text-lg text-[#4EB1B3]">Gadgets</Text>
+                    <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                </View>
+                <View className="pb-10">
+                <ProductCard data={gadgets} />
+                </View>
+               </>
+            }
+              
+        </ScrollView>
         </SafeAreaView>
     )
 }

@@ -1,4 +1,4 @@
-import { View, Text,useWindowDimensions,SafeAreaView,ActivityIndicator, Image } from 'react-native'
+import { View, Text,useWindowDimensions,SafeAreaView,ActivityIndicator, Image ,TouchableWithoutFeedback,Keyboard} from 'react-native'
 import React,{useEffect,useState,useLayoutEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import CustomInput from '../components/CustomInput';
@@ -21,7 +21,7 @@ const SigninScreen = () => {
 useEffect(()=>{
   const unsubscribe = auth.onAuthStateChanged(user => {
       if(user){
-          navigation.replace('AddProduct')
+          navigation.replace('Home')
       }
   })
 
@@ -59,7 +59,11 @@ const onSignUpPressed = ()=>{
 
 
   return (
-    <SafeAreaView className="flex-1 bg-white justify-center items-center pb-20">
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+  }}>
+         <SafeAreaView className="flex-1 bg-white justify-center items-center pb-20">
+
     <View>
       <Image source={Logo} className="w-[140px] h-[160px]" resizeMode="contain" />
     </View>
@@ -81,6 +85,7 @@ const onSignUpPressed = ()=>{
     <CustomButton text="Don't have an account? Create one" onPress={onSignUpPressed} type="TERTIARY" />
     </View> 
     </SafeAreaView>
+  </TouchableWithoutFeedback>
   )
 }
 

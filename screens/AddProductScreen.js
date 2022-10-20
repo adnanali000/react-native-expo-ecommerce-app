@@ -10,7 +10,8 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   SafeAreaView,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
  } from 'react-native'
 import React,{useLayoutEffect,createRef,useEffect,useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
@@ -35,6 +36,7 @@ const AddProductScreen = () => {
   const [productDes,setProductDes] = useState('')
   const [productCondition,setProductCondition] = useState('')
   const [productPrice,setProductPrice] = useState('')
+  const [loading,setLoading] = useState(false)
 
 
   useLayoutEffect(() => {
@@ -67,10 +69,11 @@ useEffect(()=>{
 const productRef = db.collection('AllProducts')
 
 const handleAddProduct = async () => {
-  let imgUrl = await uploadImage();
-  console.log(imgUrl);
-
-  if(imgUrl){
+    let imgUrl = await uploadImage();
+    console.log(imgUrl);
+    
+    setLoading(true)
+    if(imgUrl){
     await productRef.add({
       username: userData.name,
       phone: userData.number,
@@ -79,19 +82,22 @@ const handleAddProduct = async () => {
       productTitle: productTitle,
       productDes:productDes,
       productType: productType,
-      productCondition:productCondition
+      productCondition:productCondition,
+      productPrice:productPrice
     })
     .then(() => {
       setProductTitle('')
       setProductDes('')
       setProductCondition('')
       setProductType('')
+      setLoading(false)
       Alert.alert('Product Created!', 'Your Product has been successfully Uploaded');
       setTimeout(()=>{
         navigation.navigate("Home")
       },2000)
     })
   }else{
+    setLoading(false)
     alert("Input Error Occur")
   }
 
@@ -208,6 +214,14 @@ const renderHeader = () => (
       </TouchableOpacity>
   </View>
 )
+
+if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#0e9c99" />
+      </View>
+    );
+  }
 
 
   return (
