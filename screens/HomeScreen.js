@@ -117,9 +117,9 @@ if (loading) {
 
                 <View className="flex-1">
                     <Text className="font-bold text-gray-400 text-xs">Welcome!</Text>
-                    <Text className="font-bold text-xl">
+                    <Text className="font-bold text-xl text-[#4EB1B3]">
                         Tech Store
-                        <AntDesign name="down" size={18} color="#FCB424" />
+                        <AntDesign name="down" size={18} color="#4EB1B3" />
                     </Text>
                 </View>
                 
@@ -156,7 +156,7 @@ if (loading) {
                   {mobiles &&  
                   <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Mobile</Text>
+                    <Text className="font-bold text-lg text-[#4EB1B3]">Mobiles</Text>
                 <AntDesign name="arrowright" size={24} color="#4EB1B3" />
                 </View>
                 

@@ -13,7 +13,7 @@ import {
   ScrollView,
   ActivityIndicator
  } from 'react-native'
-import React,{useLayoutEffect,createRef,useEffect,useState} from 'react'
+import React,{useLayoutEffect,createRef,useEffect,useState,useCallback} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated';
@@ -22,6 +22,8 @@ import { auth, db } from '../firebase';
 import storage from 'firebase/storage';
 import firebase from 'firebase'
 import { FontAwesome,MaterialIcons } from '@expo/vector-icons';
+import DropDownPicker from "react-native-dropdown-picker";
+import {Controller} from 'react-hook-form';
 
 const AddProductScreen = () => {
   const userId = auth.currentUser.uid;
@@ -37,7 +39,6 @@ const AddProductScreen = () => {
   const [productCondition,setProductCondition] = useState('')
   const [productPrice,setProductPrice] = useState('')
   const [loading,setLoading] = useState(false)
-
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -69,8 +70,10 @@ useEffect(()=>{
 const productRef = db.collection('AllProducts')
 
 const handleAddProduct = async () => {
-    let imgUrl = await uploadImage();
-    console.log(imgUrl);
+    if(productType == 'Mobile' || productType == 'Laptop' || productType == 'Gadgets'){
+
+        let imgUrl = await uploadImage();
+        console.log(imgUrl);
     
     setLoading(true)
     if(imgUrl){
@@ -99,7 +102,10 @@ const handleAddProduct = async () => {
   }else{
     setLoading(false)
     alert("Input Error Occur")
-  }
+}
+}else{
+    alert("Product Type Should be Mobile / Laptop / Gadgets")
+}
 
 }
 
@@ -315,6 +321,7 @@ if (loading) {
                       onChangeText={(txt) => setProductType(txt)}
                   />
               </View>
+  
               <View style={styles.action}>
                   <FontAwesome name="star-o" size={24} color="gray" />
                   <TextInput
@@ -456,6 +463,10 @@ const styles = StyleSheet.create({
       height: 110,
       width: 100,
       borderRadius: 75,
+  },
+
+  placeholderStyles: {
+    color: "grey",
   },
 
 })

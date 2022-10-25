@@ -18,11 +18,11 @@ const navigation = useNavigation();
       className="pt-4"
     >
 
-{data?.map((item)=>(
+    {data?.map((item)=>(
     <TouchableOpacity
     key={item.id}
     className="bg-white mr-3 shadow"
-    onPress={() => navigation.navigate('AddProduct',item)}
+    onPress={() => navigation.navigate('ProductDetail',item)}
     >
         <View className="w-full flex items-center pt-2">
 
