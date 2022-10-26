@@ -1,4 +1,4 @@
-import {ActivityIndicator, View, Pressable ,Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
+import {ActivityIndicator, View, Pressable ,Text, SafeAreaView, Image, TextInput, ScrollView,TouchableOpacity } from 'react-native'
 import React, { useEffect, useLayoutEffect,useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
@@ -123,10 +123,10 @@ if (loading) {
                     </Text>
                 </View>
                 
-                <Pressable onPress={HandleSignout}>
-                <AntDesign name="logout" size={30} color="#FCB424" />
-                </Pressable>
-            </View>
+                <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+                    <Image source={{ uri: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=604' }} style={{ width: 40, height: 40, borderRadius: 20 }} />
+                </TouchableOpacity>
+                </View>
 
             {/* search  */}
             <View className="flex-row items-center space-x-2 pb-2 mx-4">

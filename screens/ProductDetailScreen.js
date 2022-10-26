@@ -9,6 +9,7 @@ const ProductDetailScreen = ({route: {params},navigation}) => {
     const {id,phone,productCondition,productDes,productImg,productPrice,productType,userid,username,productTitle} = params;
     const [data,setData] = useState()
     const [loading,setLoading] = useState(false)
+    const [focused,setFocused] = useState(false)
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -48,6 +49,10 @@ const ProductDetailScreen = ({route: {params},navigation}) => {
     });
 }
 
+const handleFavourite = ()=>{
+  setFocused(true)
+}
+
     
 useEffect(()=>{
     getProduct()  
@@ -85,7 +90,10 @@ useEffect(()=>{
 
     <View className="bg-white">
       <View className="px-4 pt-4">
+        <View className="flex items-center justify-between flex-row">
         <Text className="text-3xl text-[#4EB1B3] font-bold">{productTitle}</Text>
+        <Entypo name="heart" onPress={handleFavourite} size={30} style={{color:focused ? 'red':'gray'}} /> 
+        </View>
         <View className="flex-row space-x-2 my-1">
 
           <View className="flex-row items-center space-x-1">

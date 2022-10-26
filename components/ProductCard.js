@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import { AntDesign,Entypo } from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/native'
 
@@ -35,7 +35,6 @@ const navigation = useNavigation();
         </View>
 
         <View className="px-3 pb-4">
-
             <Text className="font-bold text-lg pt-2">{item.productTitle}</Text>
             <View className="flex-row items-center space-x-1">
                 <AntDesign name="star" size={18} color="#FF9529" />

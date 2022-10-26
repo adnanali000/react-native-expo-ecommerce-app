@@ -9,30 +9,30 @@ import SigninScreen from './screens/SigninScreen';
 import SignupScreen from './screens/SignupScreen';
 import AddProductScreen from './screens/AddProductScreen';
 import ProductDetailScreen from './screens/ProductDetailScreen';
-// import { Provider } from 'react-redux'
-// import { store } from './store';
+import FavouriteScreen from './screens/FavouriteScreen';
+import Profile from './screens/Profile';
+import MyProductScreen from './screens/MyProductScreen';
+import Tabs from './navigation/tabs'
 
 
 const Stack = createNativeStackNavigator();
 
-const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Provider store={store}> */}
         <TailwindProvider>
           <Stack.Navigator>
             <Stack.Screen name="Signin" component={SigninScreen} />
-            {/* <Drawer.Navigator initialRouteName="Home"> */}
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Home" component={Tabs} />
+            <Stack.Screen name="FavouriteProduct" component={Tabs} />
+            <Stack.Screen name="Profile" component={Tabs} />
+            <Stack.Screen name="MyProduct" component={Tabs} />
             <Stack.Screen name="AddProduct" component={AddProductScreen} />
-            {/* </Drawer.Navigator> */}
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
           </Stack.Navigator>
         </TailwindProvider>
-      {/* </Provider> */}
     </NavigationContainer>
   );
 }
