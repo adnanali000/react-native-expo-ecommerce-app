@@ -1,4 +1,4 @@
-import { View, Text,ScrollView,Image,TouchableOpacity,ActivityIndicator,Platform,Linking } from 'react-native'
+import { View, Text,ScrollView,Image,TouchableOpacity,ActivityIndicator,Platform,Linking,Alert } from 'react-native'
 import React,{useLayoutEffect,useEffect,useState} from 'react'
 import { AntDesign, Entypo,FontAwesome } from '@expo/vector-icons';
 import ProductCard from '../components/ProductCard';
@@ -49,15 +49,49 @@ const ProductDetailScreen = ({route: {params},navigation}) => {
     });
 }
 
-const handleFavourite = ()=>{
-  setFocused(true)
+const favouritesRef = db.collection('Favourites')
+
+const handleFavourite = async ()=>{
+    setFocused(true)
+    try{
+      setLoading(true)
+      await favouritesRef.add({
+      username: username,
+      phone: phone,
+      productImg: productImg,
+      userid: userid,
+      productTitle: productTitle,
+      productDes:productDes,
+      productType: productType,
+      productCondition:productCondition,
+      productPrice:productPrice,
+      productId: id
+    })
+    .then(() => {
+      setLoading(false)
+      Alert.alert('Product Added!', 'Your Product has been successfully added to your Favourites');
+    
+    })
+  }catch(err){
+    setLoading(false)
+    Alert.alert('Error!', 'Server error occur');
+  }
 }
+
 
     
 useEffect(()=>{
     getProduct()  
 },[])
   
+if (loading) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color="#0e9c99" />
+    </View>
+  );
+}
+
     
 
   return (
