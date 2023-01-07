@@ -51,9 +51,16 @@ const handleDelete = async (id)=>{
         <View className="px-3 pb-4">
             <View className="w-full flex-row pt-2 items-center justify-between">
             <Text className="font-bold text-lg">{item.productTitle}</Text>
+            <View className="flex-row space-x-4">
+          
+           {dataSourceRef == 'AllProducts' ? <TouchableOpacity onPress={()=>alert("Edit product")}>
+            <AntDesign name="edit" size={20} color="#4EB1B3"  />
+            </TouchableOpacity> : (<Text></Text>)}
+            
             <TouchableOpacity onPress={()=>handleDelete(item.id)}>
             <AntDesign name="delete" size={20} color="red"  />
             </TouchableOpacity>
+            </View>
             </View>
     
             <View className="flex-row items-center space-x-1">

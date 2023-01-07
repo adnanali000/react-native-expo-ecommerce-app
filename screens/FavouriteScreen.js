@@ -6,6 +6,7 @@ import Logo from '../assets/logo.png'
 import Categories from '../components/Categories';
 import { auth, db } from '../firebase';
 import VerticalCard from '../components/VerticalCard';
+import Header from '../components/Header';
 
 
 
@@ -37,7 +38,7 @@ const FavouriteScreen = () => {
             });
             setFavourites(favourite);
             setLoading(false);
-            console.log(favourite)
+            console.log("favousrites",favourite)
         });
       }catch(err){
         Alert.alert("Error","Server error")
@@ -64,24 +65,7 @@ if (loading) {
     return (
         <SafeAreaView className="bg-white pt-5">
             {/* header  */}
-            <View className="flex-row pb-3 items-center mx-4 space-x-2">
-                <Image
-                    source={Logo}
-                    className="h-7 w-7 bg-gray-300 p-4 rounded-full"
-                />
-
-                <View className="flex-1">
-                    <Text className="font-bold text-gray-400 text-xs">Welcome!</Text>
-                    <Text className="font-bold text-xl text-[#4EB1B3]">
-                        Tech Store
-                        <AntDesign name="down" size={18} color="#4EB1B3" />
-                    </Text>
-                </View>
-                
-                <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-                    <Image source={{ uri: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=604' }} style={{ width: 40, height: 40, borderRadius: 20 }} />
-                </TouchableOpacity>
-                </View>
+           <Header />
 
             {/* search  */}
             <View className="flex-row items-center space-x-2 pb-2 mx-4">
@@ -106,15 +90,22 @@ if (loading) {
              
                 {/* Mobile  */}
 
-                 {favourites &&  
-                  <>
+                 {favourites.length > 0 ? 
+                 (
+
+                   <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
                     <Text className="font-bold text-lg text-[#4EB1B3]">Your Favourit Products</Text>
                 {/* <AntDesign name="arrowright" size={24} color="#4EB1B3" /> */}
                 </View>
                 
-                <VerticalCard data={favourites} dataRef="Favourites"  />
+                <VerticalCard data={favourites} dataRef="Favourites" />
                   </>
+                   ): (
+                    <View className="flex items-center h-72 justify-center">
+                      <Text className="font-bold text-lg text-[#4EB1B3]">Your Favourit Product list is empty</Text>
+                    </View>
+                   ) 
                 }
                
               

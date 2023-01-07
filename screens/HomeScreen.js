@@ -6,6 +6,7 @@ import Logo from '../assets/logo.png'
 import Categories from '../components/Categories';
 import { auth, db } from '../firebase';
 import ProductCard from '../components/ProductCard';
+import Header from '../components/Header';
 
 
 
@@ -13,16 +14,33 @@ const HomeScreen = () => {
     const navigation = useNavigation()
     const [featuredCategories, setFeaturedCategories] = useState([]);
     const [loading, setLoading] = useState(true);
+  const userId = auth.currentUser.uid; 
     const [errorMessage, setErrorMessage] = useState("");
     const [mobiles,setMobiles] = useState([])
     const [gadgets,setGadgets] = useState([])
     const [laptops,setLaptops] = useState([])
+    const [userData,setUserData] = useState('');
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false
         })
     }, [])
+
+    const getUser = async()=>{
+        const currentUser = await db
+        .collection('Users')
+        .doc(userId)
+        .get()
+        .then((documentSnapshot)=>{
+            if(documentSnapshot.exists){
+                // console.log('user data',documentSnapshot.data());
+                setUserData(documentSnapshot.data())
+              
+            }
+        });
+    }    
+    
 
     const getMobiles = async ()=>{
         
@@ -74,6 +92,7 @@ const HomeScreen = () => {
 }
 
     useEffect(()=>{
+        getUser()
         getMobiles()
         getGadgets()
         getLaptops()
@@ -109,24 +128,7 @@ if (loading) {
     return (
         <SafeAreaView className="bg-white pt-5">
             {/* header  */}
-            <View className="flex-row pb-3 items-center mx-4 space-x-2">
-                <Image
-                    source={Logo}
-                    className="h-7 w-7 bg-gray-300 p-4 rounded-full"
-                />
-
-                <View className="flex-1">
-                    <Text className="font-bold text-gray-400 text-xs">Welcome!</Text>
-                    <Text className="font-bold text-xl text-[#4EB1B3]">
-                        Tech Store
-                        <AntDesign name="down" size={18} color="#4EB1B3" />
-                    </Text>
-                </View>
-                
-                <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-                    <Image source={{ uri: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=604' }} style={{ width: 40, height: 40, borderRadius: 20 }} />
-                </TouchableOpacity>
-                </View>
+            <Header />
 
             {/* search  */}
             <View className="flex-row items-center space-x-2 pb-2 mx-4">

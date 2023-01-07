@@ -11,6 +11,7 @@ import AddProductScreen from './screens/AddProductScreen';
 import ProductDetailScreen from './screens/ProductDetailScreen';
 import FavouriteScreen from './screens/FavouriteScreen';
 import Profile from './screens/Profile';
+import EditProfile from './screens/EditProfile';
 import MyProductScreen from './screens/MyProductScreen';
 import Tabs from './navigation/tabs'
 
@@ -31,6 +32,7 @@ export default function App() {
             <Stack.Screen name="AddProduct" component={AddProductScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+            <Stack.Screen name="EditProfile" component={EditProfile} />
           </Stack.Navigator>
         </TailwindProvider>
     </NavigationContainer>
