@@ -21,11 +21,11 @@ import * as ImagePicker from 'expo-image-picker';
 import { auth, db } from '../firebase';
 import storage from 'firebase/storage';
 import firebase from 'firebase'
-import { FontAwesome,MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome,MaterialIcons,AntDesign } from '@expo/vector-icons';
 import DropDownPicker from "react-native-dropdown-picker";
 import {Controller} from 'react-hook-form';
 
-const AddProductScreen = () => {
+const AddProductScreen = ({route: {params}}) => {
   const userId = auth.currentUser.uid;
   const { height } = useWindowDimensions();
   const [image, setImage] = useState(null);
@@ -33,12 +33,13 @@ const AddProductScreen = () => {
   const [transferred, setTransferred] = useState(0);
   const navigation = useNavigation();
   const [userData, setUserData] = useState('');
-  const [productType,setProductType] = useState('')
-  const [productTitle,setProductTitle] = useState('')
-  const [productDes,setProductDes] = useState('')
-  const [productCondition,setProductCondition] = useState('')
-  const [productPrice,setProductPrice] = useState('')
+  const [productType,setProductType] = useState(params?.productType || '')
+  const [productTitle,setProductTitle] = useState(params?.productTitle || '')
+  const [productDes,setProductDes] = useState(params?.productDes || '')
+  const [productCondition,setProductCondition] = useState(params?.productCondition || '')
+  const [productPrice,setProductPrice] = useState(params?.productPrice || '')
   const [loading,setLoading] = useState(false)
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -104,9 +105,43 @@ const handleAddProduct = async () => {
     alert("Input Error Occur")
 }
 }else{
-    alert("Product Type Should be Mobile / Laptop / Gadgets")
+    alert("Product Type Should be Mobile or Laptop or Gadgets")
 }
 
+}
+
+
+const handleUpdateProduct = async ()=>{
+    if(productType == 'Mobile' || productType == 'Laptop' || productType == 'Gadgets'){
+
+        let imgUrl = await uploadImage();
+        console.log({ imgUrl });
+        if (!imgUrl&& params.productImg) {
+            imgUrl = params.productImg;
+        }
+    
+    setLoading(true)
+    await productRef.doc(params?.id).update({
+      username: userData.name,
+      phone: userData.number,
+      productImg: imgUrl,
+      userid: userData.uid,
+      productTitle: productTitle,
+      productDes:productDes,
+      productType: productType,
+      productCondition:productCondition,
+      productPrice:productPrice
+    })
+    .then(() => {
+      setLoading(false)
+      Alert.alert('Product Updated!', 'Your Product has been successfully Updated');
+      setTimeout(()=>{
+        navigation.goBack()
+      },2000)
+    })
+}else{
+    Alert.alert('Error', 'Product Type Should be Mobile or Laptop or Gadgets');
+}
 }
 
 
@@ -245,14 +280,15 @@ if (loading) {
               enabledGestureInteraction={true}
           />
 
-          {/* <HeaderBar
-              title=""
-              leftOnPressed={() => navigation.goBack()}
-              right={false}
-              containerStyle={{
-                  marginTop: SIZES.padding * 2
-              }}
-          /> */}
+            {/* <View className="relative">
+            <TouchableOpacity className="absolute top-10 left-5 p-2 bg-gray-100 rounded-full"
+                onPress={()=>navigation.goBack()}
+                >
+                <AntDesign name="arrowleft" size={24} color="#00CCBB" />
+            </TouchableOpacity>
+                </View>     */}
+
+         
 
           <Animated.View style={{ margin: 20, opacity: Animated.add(0.1, Animated.multiply(fall, 1.0)) }}>
               <View style={{ alignItems: 'center' }} className="pb-4 mt-6">
@@ -268,13 +304,8 @@ if (loading) {
                       }}>
                           <ImageBackground
                               source={{
-                                  uri: image
-                                      ? image
-                                          : 
-                                          'data:image/png;base64,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'
-                                        ,
-
-                              }}
+                                  uri: image ? image : params ? params.productImg : 
+                                  'data:image/png;base64,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',}}
                               style={styles.userImg}
                               imageStyle={{ borderRadius: 75 }}
                               className="contain"
@@ -361,11 +392,16 @@ if (loading) {
               </View>
              
            
-              <TouchableOpacity style={styles.commandButton} className="bg-[#FCB424]" onPress={handleAddProduct}>
-                  <Text style={styles.panelButtonTitle} >Add Product</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.commandButton} className="bg-[#FCB424]" onPress={()=>navigation.navigate('Home')}>
-                  <Text style={styles.panelButtonTitle} >Go to home</Text>
+              {params ? 
+                <TouchableOpacity style={styles.commandButton} className="bg-[#FCB424]" onPress={handleUpdateProduct}>
+                  <Text style={styles.panelButtonTitle} >Update Product</Text>
+                </TouchableOpacity> : 
+                <TouchableOpacity style={styles.commandButton} className="bg-[#FCB424]" onPress={handleAddProduct}>
+                    <Text style={styles.panelButtonTitle} >Add Product</Text>
+                </TouchableOpacity>
+          }
+              <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
+                  <Text style={styles.panelButtonTitle} >Go Back</Text>
               </TouchableOpacity>
           </Animated.View>
       </View>

@@ -16,7 +16,7 @@ const FavouriteScreen = () => {
     const [favourites,setFavourites] = useState([])
     const user_id  = auth.currentUser.uid; 
 
-    console.log(user_id)
+    console.log("email",auth.currentUser.email,auth.currentUser.uid)
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -38,7 +38,7 @@ const FavouriteScreen = () => {
             });
             setFavourites(favourite);
             setLoading(false);
-            console.log("favousrites",favourite)
+            // console.log("favousrites",favourite)
         });
       }catch(err){
         Alert.alert("Error","Server error")
@@ -49,7 +49,7 @@ const FavouriteScreen = () => {
    
 
     useEffect(()=>{
-      console.log(user_id)
+      // console.log(user_id)
         getFavourites()
     },[])
   

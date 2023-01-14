@@ -10,6 +10,7 @@ const ProductDetailScreen = ({route: {params},navigation}) => {
     const [data,setData] = useState()
     const [loading,setLoading] = useState(false)
     const [focused,setFocused] = useState(false)
+    const uid = auth.currentUser.uid
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -59,7 +60,7 @@ const handleFavourite = async ()=>{
       username: username,
       phone: phone,
       productImg: productImg,
-      userid: userid,
+      userid: uid,
       productTitle: productTitle,
       productDes:productDes,
       productType: productType,

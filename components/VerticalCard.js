@@ -53,7 +53,7 @@ const handleDelete = async (id)=>{
             <Text className="font-bold text-lg">{item.productTitle}</Text>
             <View className="flex-row space-x-4">
           
-           {dataSourceRef == 'AllProducts' ? <TouchableOpacity onPress={()=>alert("Edit product")}>
+           {dataSourceRef == 'AllProducts' ? <TouchableOpacity onPress={()=>navigation.navigate("AddProduct",item)}>
             <AntDesign name="edit" size={20} color="#4EB1B3"  />
             </TouchableOpacity> : (<Text></Text>)}
             
