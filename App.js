@@ -14,6 +14,8 @@ import Profile from './screens/Profile';
 import EditProfile from './screens/EditProfile';
 import MyProductScreen from './screens/MyProductScreen';
 import Tabs from './navigation/tabs'
+import SearchProduct from './screens/SearchProduct';
+import EditEmail from './screens/EditEmail';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +35,8 @@ export default function App() {
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
             <Stack.Screen name="EditProfile" component={EditProfile} />
+            <Stack.Screen name="SearchProduct" component={SearchProduct} />
+            <Stack.Screen name="EditEmail" component={EditEmail} />
           </Stack.Navigator>
         </TailwindProvider>
     </NavigationContainer>

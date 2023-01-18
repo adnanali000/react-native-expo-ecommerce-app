@@ -50,7 +50,7 @@ const Header = () => {
                 </View>
                 
                 <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-                    <Image source={{ uri: userData ? userData.userImg || 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=604' : 'https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png' }} style={{ width: 40, height: 40, borderRadius: 20 }} />
+                    <Image source={{ uri: userData ? userData.userImg || 'https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png' : 'https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png' }} style={{ width: 40, height: 40, borderRadius: 20 }} />
                 </TouchableOpacity>
                 </View>
   )

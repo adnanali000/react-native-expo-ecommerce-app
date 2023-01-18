@@ -7,6 +7,7 @@ import Categories from '../components/Categories';
 import { auth, db } from '../firebase';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 
 
 
@@ -131,17 +132,7 @@ if (loading) {
             <Header />
 
             {/* search  */}
-            <View className="flex-row items-center space-x-2 pb-2 mx-4">
-                <View className="flex-row space-x-2 flex-1 bg-gray-200 p-3">
-                    <AntDesign name="search1" color="gray" size={20} />
-                    <TextInput
-                        placeholder='Mobile Laptop and Gadgets'
-                        keyboardType='default'
-                    />
-                </View>
-
-                <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="#FCB424" />
-            </View>
+           <SearchBar />
 
             {/* Body */}
             <ScrollView

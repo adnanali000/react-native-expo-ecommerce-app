@@ -298,7 +298,7 @@ const EditProfile = ({navigation}) => {
                             autoCorrect={false}
                             keyboardType='number-pad'
                             value={userData ? userData.number : ''}
-                            onChangeText={(txt) => setUserData({ ...userData, phone: txt })}
+                            onChangeText={(txt) => setUserData({ ...userData, number: txt })}
                         />
                     </View>
                     <View style={styles.action}>

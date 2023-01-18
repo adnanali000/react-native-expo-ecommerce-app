@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {useWindowDimensions, View,Image, Text , StyleSheet,TouchableOpacity,TextInput,SafeAreaView,ScrollView} from 'react-native'
 import { auth,db } from '../firebase';
 import CustomButton from '../components/CustomButton';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons,Entypo } from '@expo/vector-icons';
 
 
 const Profile = ({navigation}) => {
@@ -44,8 +44,7 @@ const handleEditProfile = () => {
   navigation.navigate('EditProfile')
 }
 const handleEditEmail = () => {
-  // navigation.navigate('EditEmail')
-  console.log("edit email")
+  navigation.navigate('EditEmail')
 }
   return (
     <SafeAreaView className="flex-1 mb-[60px]">
@@ -61,11 +60,18 @@ const handleEditEmail = () => {
 
         <View className="px-4">
             <View className="w-full flex-col justify-start border-b border-gray-800">
-              <Text className="text-gray-400 text-lg font-bold">NAME</Text>
+              {/* <View className="w-full flex-row items-center justify-between"> */}
+                <Text className="text-gray-400 text-lg font-bold">NAME</Text>
+                {/* <Entypo name="edit" size={20} color="gray" onPress={handleEditProfile} /> */}
+              {/* </View> */}
               <Text className="font-bold text-lg .border-b flex pt-1 pb-2">{`${userData ? userData.name || 'No details added' : ''}`}</Text>
             </View>
             <View className="w-full flex-col justify-start border-b pt-4 border-gray-800">
+              <View className="w-full flex-row items-center justify-between">
               <Text className="text-gray-400 text-lg font-bold">EMAIL ADDRESS</Text>
+              <Entypo name="edit" size={20} color="gray" onPress={handleEditEmail} />
+            
+              </View>
               <Text className="font-bold text-lg .border-b flex pt-1 pb-2">{`${userData ? userData.email || 'No details added' : ''}`}</Text>
             </View>
             <View className="w-full flex-col justify-start border-b pt-4 border-gray-800">
@@ -81,15 +87,13 @@ const handleEditEmail = () => {
               <Text className="font-bold text-lg .border-b flex pt-1 pb-2">{`${userData ? userData.city || 'No details added' : ''}`}</Text>
             </View>
         </View>
-        
-        <View className="w-full flex px-4 items-center flex-row mt-4 justify-between">
-          <View className="w-5/12">
+
+       
+                    
+          <View className="w-full flex px-8 mt-3 mb-20">
           <CustomButton text="Edit Profile" type="TERTIARY" onPress={handleEditProfile}/>
           </View>
-        <View className="w-5/12">
-          <CustomButton text="Edit Email" type="TERTIARY" onPress={handleEditEmail}/>
-        </View>
-        </View>
+       
       </ScrollView>
 
     </SafeAreaView>

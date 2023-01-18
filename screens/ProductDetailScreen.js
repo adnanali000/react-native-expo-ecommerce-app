@@ -109,12 +109,15 @@ if (loading) {
 
 <ScrollView>
     <View className="relative">
+      <View className="flex justify-center items-center w-full">
       <Image
         source={{
           uri: productImg
         }}
-        className="w-full h-56 bg-gray-300 p-4"
+        // className="w-full h-80 bg-gray-300 p-4"
+        resizeMode="contain" className="h-60 w-60 mt-10 mb-2"
       />
+      </View>
 
       <TouchableOpacity className="absolute top-10 left-5 p-2 bg-gray-100 rounded-full"
         onPress={navigation.goBack}

@@ -59,7 +59,7 @@ const onSignUpPressed = ()=>{
             setLoading(false)
             Alert.alert("Success","User created Successully")
             setTimeout(()=>{
-              navigation.navigate("Signin")
+              navigation.navigate("Home")
             },2000)
         })
         .catch(error => alert(error.message));
