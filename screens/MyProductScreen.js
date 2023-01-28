@@ -55,7 +55,7 @@ const MyProductScreen = () => {
 if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#0e9c99" />
+        <ActivityIndicator size="large" color="#5e35b1" />
       </View>
     );
   }
@@ -83,7 +83,7 @@ if (loading) {
                  (
                      <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Your Products</Text>
+                    <Text className="font-bold text-lg text-purple-600">Your Products</Text>
                 </View>
                 
                     <VerticalCard data={products} dataRef="AllProducts" />
@@ -92,7 +92,7 @@ if (loading) {
                         
                         <>
                         <View className="flex items-center h-72 justify-center">
-                            <Text className="font-bold text-lg text-[#4EB1B3]">No Products</Text>
+                            <Text className="font-bold text-lg text-purple-600">No Products</Text>
                         </View>
                         </>
                      )

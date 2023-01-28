@@ -88,7 +88,7 @@ useEffect(()=>{
 if (loading) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size="large" color="#0e9c99" />
+      <ActivityIndicator size="large" color="#5e35b1" />
     </View>
   );
 }
@@ -99,7 +99,7 @@ if (loading) {
 <>
 
 <View className="absolute bottom-10 z-50 w-full">
-            <TouchableOpacity onPress={dialCall} className="bg-[#FCB424] p-4 rounded-lg flex-row items-center space-x-1 mx-5">
+            <TouchableOpacity onPress={dialCall} className="bg-purple-600 p-4 rounded-lg flex-row items-center space-x-1 mx-5">
                 <Text className="text-lg py-1 px-2">
                     <FontAwesome name='phone'  size={24} color="#fff" />
                 </Text>
@@ -119,17 +119,17 @@ if (loading) {
       />
       </View>
 
-      <TouchableOpacity className="absolute top-10 left-5 p-2 bg-gray-100 rounded-full"
+      <TouchableOpacity className="absolute top-10 left-3 p-2 rounded-full"
         onPress={navigation.goBack}
       >
-        <AntDesign name="arrowleft" size={24} color="#00CCBB" />
+        <AntDesign name="arrowleft" size={30} color="black" />
       </TouchableOpacity>
     </View>
 
     <View className="bg-white">
       <View className="px-4 pt-4">
         <View className="flex items-center justify-between flex-row">
-        <Text className="text-3xl text-[#4EB1B3] font-bold">{productTitle}</Text>
+        <Text className="text-3xl text-black font-bold pb-2">{productTitle}</Text>
         <Entypo name="heart" onPress={handleFavourite} size={30} style={{color:focused ? 'red':'gray'}} /> 
         </View>
         <View className="flex-row space-x-2 my-1">
@@ -149,9 +149,9 @@ if (loading) {
           </View>
         </View>
         <View className="flex-row items-center space-x-1">
-            <FontAwesome name="money" size={24} color="gray" />
-            <Text className="text-gray-500 text-[16px]">
-            ~ Rs.{productPrice}
+            {/* <FontAwesome name="money" size={24} color="gray" /> */}
+            <Text className="text-purple-600 text-[16px]">
+            Rs.{productPrice}
             </Text>
           </View>
         <Text className="text-gray-500 mt-2 pb-4">{productDes}</Text>
@@ -161,12 +161,12 @@ if (loading) {
 
     {loading ? (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#0e9c99" />
+        <ActivityIndicator size="large" color="#5e35b1" />
       </View>
     ) :
     
     <View className="pb-36">
-    <Text className="pt-6 px-4 mb-3 text-[#4EB1B3] font-bold text-xl">More {productType}s</Text>
+    <Text className="pt-6 px-4 mb-3 text-purple-600 font-bold text-xl">More {productType}s</Text>
 
     {/* dish row  */}
     {data && data.map((item) => (

@@ -3,13 +3,13 @@ import React from 'react'
 
 const CustomInput = ({value,setValue,placeholder,secureTextEntry}) => {
     return (
-        <View className="bg-white w-full border rounded-xl  border-solid border-[#4FA3A5] px-3 py-4 my-2">
+        <View className="bg-white w-full border-2 rounded-sm  border-solid border-gray-400 px-2 py-3 my-2">
             <TextInput
             value={value}
             onChangeText={setValue}
             placeholder={placeholder} 
             secureTextEntry={secureTextEntry}
-            placeholderTextColor="#dae0db"
+            placeholderTextColor="gray"
             className="text-gray-600"
             />
         </View>

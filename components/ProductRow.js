@@ -35,9 +35,9 @@ const ProductRow = ({
                  className={`bg-white p-4 border border-gray-200 mt-2`}>
                 <View className="flex-row">
                     <View className="flex-1 pr-2">
-                        <Text className="text-lg mb-1 text-[#4EB1B3]">{productTitle}</Text>
+                        <Text className="text-lg mb-1 text-gray-800">{productTitle}</Text>
                         <Text className="text-gray-400">{productDes}</Text>
-                        <Text className="text-gray-400 mt-2">
+                        <Text className="text-purple-600 mt-2">
                             Rs.{productPrice}
                             {/* <Currency quantity={price} currency="PKR" /> */}
                         </Text>

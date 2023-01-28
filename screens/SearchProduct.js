@@ -68,7 +68,7 @@ const SearchProduct = ({ navigation }) => {
       if (loading) {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <ActivityIndicator size="large" color="#0e9c99" />
+            <ActivityIndicator size="large" color="#5e35b1" />
           </View>
         );
       }
@@ -80,20 +80,21 @@ const SearchProduct = ({ navigation }) => {
             <SafeAreaView className="flex-1 bg-white">
 
                     <View className="relative">
-                        <TouchableOpacity className="absolute top-5 left-5 p-2 bg-gray-100 rounded-full"
+                        <TouchableOpacity className="absolute top-5 left-3 p-2  rounded-full"
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={24} color="#00CCBB" />
+                            <AntDesign name="arrowleft" size={30} color="black" />
                         </TouchableOpacity>
                     </View>
 
-                    <View className="mt-16 py-2 px-6">
-                        <View className="flex-row space-x-2 rounded border border-gray-600 p-3">
+                    <View className="mt-16 py-2 px-10 mb-6">
+                        <Text className="text-black text-[30px] font-bold">Search</Text>
+                        <View className="flex-row space-x-2 rounded-full border mt-6 bg-purple-50 border-purple-600 p-3">
                             <AntDesign name="search1" color="gray" size={20} />
                             <TextInput
-                                placeholder='Search..'
+                                placeholder='What are you looking for ?'
                                 keyboardType='default'
-                                className="w-8/12 text-gray-500"
+                                className="w-8/12 text-purple-800"
                                 onChangeText={(text) => searchFilterFunction(text)}
                                 value={search}
                             />
@@ -101,7 +102,7 @@ const SearchProduct = ({ navigation }) => {
                     </View>
 
                     <ScrollView
-                className="bg-gray-100"
+                className="bg-white px-4"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}
@@ -113,7 +114,7 @@ const SearchProduct = ({ navigation }) => {
                  (
                      <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">All Products</Text>
+                    <Text className="font-bold text-[25px] text-gray-800">All Products</Text>
                 </View>
                 
                     <SearchCards data={filteredDataSource}  />
@@ -122,7 +123,7 @@ const SearchProduct = ({ navigation }) => {
                         
                         <>
                         <View className="flex items-center h-72 justify-center">
-                            <Text className="font-bold text-lg text-[#4EB1B3]">No Products</Text>
+                            <Text className="font-bold text-lg text-purple-600">No Products</Text>
                         </View>
                         </>
                      )

@@ -19,7 +19,7 @@ import firebase from 'firebase'
 
 
 
-const EditEmail = ({ navigation }) => {
+const EditPassword = ({ navigation }) => {
     const email = auth.currentUser.email;
     const userId = auth.currentUser.uid;
     const { height } = useWindowDimensions();
@@ -71,39 +71,6 @@ const EditEmail = ({ navigation }) => {
         } 
       }  
 
-
-     //update work
-     const handleUpdate = async () => {
-        if(newEmail && password){
-            setLoading(true)
-            reauthenticate(password).then(() => {
-                var user = firebase.auth().currentUser;
-                user.updateEmail(newEmail).then(() => {
-                  const updatedEmail = auth.currentUser.email;                  
-                  db.collection('Users')
-                  .doc(userId)
-                  .update({
-                      email:updatedEmail
-                  })
-                  .then(() => {
-                    setLoading(false)
-                      Alert.alert('Email Updated!', 'Your Email has been updated successfully');
-                      navigation.goBack();
-                  })
-
-                }).catch((error) => { 
-                    setLoading(false)
-                    console.log(error) });
-              }).catch((error) => { 
-                setLoading(false)
-                console.log(error); });
-
-        }else{
-            
-            alert('wrong input filed')
-        } 
-}
-
 if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -125,69 +92,16 @@ if (loading) {
                         </TouchableOpacity>
             </View>
                 <Animated.View className="mt-20 px-6">
-                    <Text className="text-xl font-bold text-gray-800">Email</Text>
+                    <Text className="text-xl font-bold text-gray-800">Password</Text>
 
-                     <View className="mt-8">
-                            <Text className="text-[20px] font-medium text-gray-60">Current Email adress</Text>
-                            <Text className="text-purple-600 font-bold text-[16px]">{email}</Text>
-                        </View>   
-                    {/* <View style={styles.action}>
-                        <FontAwesome name="envelope-o" size={24} color="gray" />
-                        <TextInput
-                            placeholder='Email'
-                            placeholderTextColor="gray"
-                            style={styles.textInput}
-                            autoCorrect={false}
-                            keyboardType='email-address'
-                            value={email}
-                        />
-                    </View> */}
-
-                  
                   
                   <View className="mt-12">
-                    <Text className="text-[20px] text-gray-800">New email address</Text>
+                    <Text className="text-[20px] text-gray-800">Current Password</Text>
                   </View>
                     <View style={styles.action}>
                         {/* <FontAwesome name="envelope-o" size={24} color="gray" /> */}
                         <TextInput
-                            placeholder='Email'
-                            placeholderTextColor="gray"
-                            style={styles.textInput}
-                            autoCorrect={false}
-                            keyboardType='email-address'
-                            value={newEmail}
-                            onChangeText={setNewEmail}
-                        />
-                    </View>
-
-                    <View className="mt-6">
-                    <Text className="text-[20px] text-gray-800">Password</Text>
-                  </View>
-                    <View style={styles.action}>
-                        {/* <FontAwesome name="lock" size={24} color="gray" /> */}
-                        <TextInput
-                            placeholder='Password'
-                            placeholderTextColor="gray"
-                            style={styles.textInput}
-                            autoCorrect={false}
-                            value={password}
-                            onChangeText={setPassword}
-                            secureTextEntry={true}                            
-                        />
-                    </View>
-                   
-                    <TouchableOpacity className="bg-purple-600 mb-12" style={styles.commandButton} onPress={handleUpdate}>
-                        <Text style={styles.panelButtonTitle}>Confirm modification</Text>
-                    </TouchableOpacity>
-
-                    {/* <Text className="text-lg font-semibold text-gray-400">Password</Text>
-
-                    
-                    <View style={styles.action}>
-                        <FontAwesome name="lock" size={24} color="gray" />
-                        <TextInput
-                            placeholder='old passowrd'
+                            placeholder='Current passowrd'
                             placeholderTextColor="gray"
                             style={styles.textInput}
                             autoCorrect={false}
@@ -197,10 +111,13 @@ if (loading) {
                         />
                     </View>
 
+                    <View className="mt-6">
+                    <Text className="text-[20px] text-gray-800">New Password</Text>
+                  </View>
                     <View style={styles.action}>
-                        <FontAwesome name="lock" size={24} color="gray" />
+                        {/* <FontAwesome name="lock" size={24} color="gray" /> */}
                         <TextInput
-                            placeholder='new passowrd'
+                            placeholder='New passowrd'
                             placeholderTextColor="gray"
                             style={styles.textInput}
                             autoCorrect={false}
@@ -210,14 +127,10 @@ if (loading) {
                         />
                     </View>
                    
-                    <TouchableOpacity className="bg-[#FCB424]" style={styles.commandButton} onPress={updatePassword}>
-                        <Text style={styles.panelButtonTitle}>Update Passowrd</Text>
-                    </TouchableOpacity> */}
-                    
+                    <TouchableOpacity className="bg-purple-600 mb-12" style={styles.commandButton} onPress={updatePassword}>
+                        <Text style={styles.panelButtonTitle}>Confirm modification</Text>
+                    </TouchableOpacity>
 
-                    {/* <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
-                  <Text style={styles.panelButtonTitle} >Go Back</Text>
-              </TouchableOpacity> */}
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -319,4 +232,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default EditEmail
+export default EditPassword

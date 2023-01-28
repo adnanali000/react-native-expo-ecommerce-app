@@ -43,9 +43,9 @@ const Header = () => {
 
                 <View className="flex-1">
                     <Text className="font-bold text-gray-400 text-xs">Welcome!</Text>
-                    <Text className="font-bold text-xl text-[#4EB1B3]">
+                    <Text className="font-bold text-xl text-purple-600">
                         Tech Store
-                        <AntDesign name="down" size={18} color="#4EB1B3" />
+                        <AntDesign name="down" size={18} color="gray" />
                     </Text>
                 </View>
                 

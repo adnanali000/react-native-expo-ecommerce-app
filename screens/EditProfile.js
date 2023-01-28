@@ -11,7 +11,7 @@ import {
     Keyboard,
     TouchableWithoutFeedback } from 'react-native'
 import React,{useLayoutEffect,createRef, useState, useEffect} from 'react'
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome,AntDesign } from '@expo/vector-icons';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated';
 import { auth, db } from '../firebase';
@@ -225,6 +225,7 @@ const EditProfile = ({navigation}) => {
         Keyboard.dismiss();
     }}>
         <View className="flex-1 bg-white">
+        
     <BottomSheet
                     ref={bs}
                     snapPoints={[330, 0]}
@@ -235,6 +236,14 @@ const EditProfile = ({navigation}) => {
                     enabledGestureInteraction={true}
                 />
                 <Animated.View style={{ margin: 20, opacity: Animated.add(0.1, Animated.multiply(fall, 1.0)) }}>
+                <View className="">
+                        <TouchableOpacity className="p-2 rounded-full"
+                            onPress={navigation.goBack}
+                        >
+                            <AntDesign name="arrowleft" size={34} color="black" />
+                        </TouchableOpacity>
+                    </View>
+                  
                     <View style={{ alignItems: 'center' }} className="pb-4 mt-6">
                         <TouchableOpacity onPress={() => bs.current.snapTo(0)}>
                             <View style={{
@@ -324,12 +333,12 @@ const EditProfile = ({navigation}) => {
                         />
                     </View>
                    
-                <TouchableOpacity style={styles.commandButton} className="bg-[#FCB424]" onPress={handleUpdate}>
-                  <Text style={styles.panelButtonTitle} >Update</Text>
-                </TouchableOpacity>
-              <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
+                    <TouchableOpacity className="bg-purple-600 mb-12" style={styles.commandButton} onPress={handleUpdate}>
+                        <Text style={styles.panelButtonTitle}>Confirm modification</Text>
+                    </TouchableOpacity>
+              {/* <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
                   <Text style={styles.panelButtonTitle} >Go Back</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </Animated.View>
         </View>
         </TouchableWithoutFeedback>
@@ -342,10 +351,10 @@ const styles = StyleSheet.create({
     },
     commandButton: {
         padding: 15,
-        borderRadius: 15,
+        borderRadius: 5,
        
         alignItems: 'center',
-        marginTop: 10,
+        marginTop: 20,
     },
     panel: {
         padding: 20,
@@ -392,7 +401,7 @@ const styles = StyleSheet.create({
     panelButton: {
         padding: 13,
         borderRadius: 15,
-        backgroundColor: '#0e9c99',
+        backgroundColor: '#5e35b1',
         alignItems: 'center',
         marginVertical: 7,
     },
@@ -403,11 +412,12 @@ const styles = StyleSheet.create({
     },
     action: {
         flexDirection: 'row',
-        marginTop: 20,
-        marginBottom: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        paddingBottom: 5,
+        marginTop: 15,
+        // marginBottom: 10,
+        borderWidth: 1,
+        borderColor: 'gray',
+        padding: 12,
+        borderRadius:5
     },
     actionError: {
         flexDirection: 'row',

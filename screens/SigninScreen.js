@@ -32,7 +32,7 @@ useEffect(()=>{
 if (loading) {
   return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color="#0e9c99" />
+          <ActivityIndicator size="large" color="#5e35b1" />
       </View>
   );
 }
@@ -64,25 +64,26 @@ const onSignUpPressed = ()=>{
   }}>
          <SafeAreaView className="flex-1 bg-white justify-center items-center pb-20">
 
-    <View>
-      <Image source={Logo} className="w-[140px] h-[160px]" resizeMode="contain" />
+         <View className="flex justify-center items-center mt-10">
+      <Text className="text-2xl text-gray-600 font-bold">Login In</Text>
     </View>
-    <View className="flex justify-start w-10/12 my-4">
-      <Text className="text-2xl text-[#FCB424] font-bold">Sign In</Text>
+    <View>
+      <Image source={Logo} className="w-[100px] h-[120px]" resizeMode="contain" />
     </View>
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Your Email</Text>
-      <CustomInput value={email} setValue={setEmail} placeholder="abc@example.com" />
+      <Text className="text-lg text-gray-500">Email</Text>
+      <CustomInput value={email} setValue={setEmail} placeholder="Email" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Password</Text>
-      <CustomInput value={password} setValue={setPassword} placeholder="7+ character" secureTextEntry={true} />
+      <Text className="text-lg text-gray-500">Password</Text>
+      <CustomInput value={password} setValue={setPassword} placeholder="Password" secureTextEntry={true} />
     </View>  
     <View className="w-10/12 py-4">
     <CustomButton onPress={onSignInPressed} text="Sign In" />
     </View>
-    <View className="w-10/12 pb-20">
-    <CustomButton text="Don't have an account? Create one" onPress={onSignUpPressed} type="TERTIARY" />
+    <View className="w-full flex items-center pb-20 text-center">
+      <Text className="text-lg text-gray-600 font-semibold">Don't have an account ? <Text onPress={onSignUpPressed} className="text-purple-600 font-bold ">Sign up</Text></Text>
+    {/* <CustomButton text="Don't have an account? Create one" onPress={onSignUpPressed} type="TERTIARY" /> */}
     </View> 
     </SafeAreaView>
   </TouchableWithoutFeedback>

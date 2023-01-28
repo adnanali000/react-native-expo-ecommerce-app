@@ -110,7 +110,7 @@ const HomeScreen = () => {
 if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#0e9c99" />
+        <ActivityIndicator size="large" color="#5e35b1" />
       </View>
     );
   }
@@ -149,8 +149,8 @@ if (loading) {
                   {mobiles &&  
                   <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Mobiles</Text>
-                <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                    <Text className="font-bold text-lg text-purple-600">Mobiles</Text>
+                <AntDesign name="arrowright" size={24} color="gray" />
                 </View>
                 
                 <ProductCard data={mobiles} />
@@ -161,8 +161,8 @@ if (loading) {
                 {laptops && 
                <>
                <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Laptops</Text>
-                    <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                    <Text className="font-bold text-lg text-purple-600">Laptops</Text>
+                    <AntDesign name="arrowright" size={24} color="gray" />
                 </View>
                 <ProductCard data={laptops} />
                </>
@@ -174,8 +174,8 @@ if (loading) {
                {gadgets && 
                <>
                <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Gadgets</Text>
-                    <AntDesign name="arrowright" size={24} color="#4EB1B3" />
+                    <Text className="font-bold text-lg text-purple-600">Gadgets</Text>
+                    <AntDesign name="arrowright" size={24} color="gray" />
                 </View>
                 <View className="pb-10">
                 <ProductCard data={gadgets} />

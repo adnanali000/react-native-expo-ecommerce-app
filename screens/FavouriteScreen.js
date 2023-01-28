@@ -56,7 +56,7 @@ const FavouriteScreen = () => {
 if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#0e9c99" />
+        <ActivityIndicator size="large" color="#5e35b1" />
       </View>
     );
   }
@@ -85,7 +85,7 @@ if (loading) {
 
                    <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-[#4EB1B3]">Your Favourit Products</Text>
+                    <Text className="font-bold text-lg text-purple-600">Your Favourit Products</Text>
                 {/* <AntDesign name="arrowright" size={24} color="#4EB1B3" /> */}
                 </View>
                 
@@ -93,7 +93,7 @@ if (loading) {
                   </>
                    ): (
                     <View className="flex items-center h-72 justify-center">
-                      <Text className="font-bold text-lg text-[#4EB1B3]">Your Favourit Product list is empty</Text>
+                      <Text className="font-bold text-lg text-purple-600">Your Favourit Product list is empty</Text>
                     </View>
                    ) 
                 }

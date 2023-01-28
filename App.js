@@ -16,7 +16,7 @@ import MyProductScreen from './screens/MyProductScreen';
 import Tabs from './navigation/tabs'
 import SearchProduct from './screens/SearchProduct';
 import EditEmail from './screens/EditEmail';
-
+import EditPassword from './screens/EditPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +37,7 @@ export default function App() {
             <Stack.Screen name="EditProfile" component={EditProfile} />
             <Stack.Screen name="SearchProduct" component={SearchProduct} />
             <Stack.Screen name="EditEmail" component={EditEmail} />
+            <Stack.Screen name="EditPassword" component={EditPassword} />
           </Stack.Navigator>
         </TailwindProvider>
     </NavigationContainer>

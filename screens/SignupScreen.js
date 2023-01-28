@@ -24,7 +24,7 @@ const SignupScreen = () => {
 if (loading) {
   return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color="#0e9c99" />
+          <ActivityIndicator size="large" color="#5e35b1" />
       </View>
   );
 }
@@ -73,37 +73,41 @@ const onSignUpPressed = ()=>{
   return (
       <ScrollView showsVerticalScrollIndicator={false} >
     <SafeAreaView className="flex-1 w-full bg-white justify-center items-center">
-    {/* <View>
-      <Image source={Logo} className="w-[140px] h-[160px]" resizeMode="contain" />
-    </View> */}
-    <View className="flex justify-start w-10/12 my-4">
-      <Text className="text-2xl text-[#FCB424] font-bold">Sign Up</Text>
+    <View className="flex justify-center items-center mt-10">
+      <Text className="text-2xl text-gray-600 font-bold">Create an account</Text>
     </View>
+    <View>
+      <Image source={Logo} className="w-[100px] h-[120px]" resizeMode="contain" />
+    </View>
+   
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Name</Text>
-      <CustomInput value={userName} setValue={setUserName} placeholder="full name" />
+      <Text className="text-lg text-gray-500">Full Name</Text>
+      <CustomInput value={userName} setValue={setUserName} placeholder="Full name" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Email</Text>
-      <CustomInput value={email} setValue={setEmail} placeholder="abc@example.com" />
+      <Text className="text-lg text-gray-500">Email</Text>
+      <CustomInput value={email} setValue={setEmail} placeholder="Email" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Contact No.</Text>
-      <CustomInput value={number} setValue={setNumber} placeholder="03123456789" />
+      <Text className="text-lg text-gray-500">Contact No.</Text>
+      <CustomInput value={number} setValue={setNumber} placeholder="Phone" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Password</Text>
-      <CustomInput value={password} setValue={setPassword} placeholder="7+ character" secureTextEntry={true} />
+      <Text className="text-lg text-gray-500">Password</Text>
+      <CustomInput value={password} setValue={setPassword} placeholder="Password" secureTextEntry={true} />
     </View>  
-    <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-[#4FA3A5]">Cofirm Password</Text>
+    {/* <View className="flex flex-col justify-start w-10/12">
+      <Text className="text-lg text-gray-500">Cofirm Password</Text>
       <CustomInput value={confirmPassword} setValue={setConfirmPassword} placeholder="Retype password" secureTextEntry={true} />
-    </View>  
+    </View>   */}
     <View className="w-10/12 py-2">
+
     <CustomButton onPress={onSignUpPressed} text="Sign Up" />
     </View>
-    <View className="w-10/12">
-    <CustomButton text="Already have an account? Sign in" onPress={onSignInPressed} type="TERTIARY" />
+    <View className="w-full flex items-center">
+    <Text className="text-lg text-gray-600 font-semibold">Already have an account ? <Text onPress={onSignInPressed} className="text-purple-600 font-bold ">Login</Text></Text>
+  
+    {/* <CustomButton text="Already have an account? Sign in" onPress={onSignInPressed} type="TERTIARY" /> */}
     </View> 
     <Text className="h-[100px]"></Text>
     </SafeAreaView>
