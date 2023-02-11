@@ -17,6 +17,7 @@ import Tabs from './navigation/tabs'
 import SearchProduct from './screens/SearchProduct';
 import EditEmail from './screens/EditEmail';
 import EditPassword from './screens/EditPassword';
+import OnboardingScreen from './screens/OnboardingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function App() {
     <NavigationContainer>
         <TailwindProvider>
           <Stack.Navigator>
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
             <Stack.Screen name="Signin" component={SigninScreen} />
             <Stack.Screen name="Home" component={Tabs} />
             <Stack.Screen name="FavouriteProduct" component={Tabs} />

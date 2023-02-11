@@ -6,7 +6,7 @@ import ProductRow from '../components/ProductRow';
 import { auth, db } from '../firebase';
 
 const ProductDetailScreen = ({route: {params},navigation}) => {
-    const {id,phone,productCondition,productDes,productImg,productPrice,productType,userid,username,productTitle} = params;
+    const {id,phone,productCondition,productDes,productImg,productPrice,productType,userid,userImage,username,productTitle} = params;
     const [data,setData] = useState()
     const [loading,setLoading] = useState(false)
     const [focused,setFocused] = useState(false)
@@ -104,6 +104,9 @@ if (loading) {
                     <FontAwesome name='phone'  size={24} color="#fff" />
                 </Text>
                 <Text className="flex-1 text-center text-white text-lg font-extrabold">{phone}</Text>
+                <TouchableOpacity>
+                    {userImage ? <Image source={{ uri: userImage }} style={{ width: 35, height: 35, borderRadius: 20 }} />: <FontAwesome name='user'  size={24} color="#fff" />}
+                </TouchableOpacity>
             </TouchableOpacity>
         </View>
 
@@ -144,7 +147,7 @@ if (loading) {
           <View className="flex-row items-center space-x-0.5">
             <Entypo name="location-pin" size={22} color="gray" />
             <Text className="text-gray-500 w-[230px]" numberOfLines={1}>
-              <Text className="text-gray">Owner ~ {username}</Text>
+                Owner ~ {username}
             </Text>
           </View>
         </View>

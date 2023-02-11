@@ -84,6 +84,7 @@ const handleAddProduct = async () => {
     await productRef.add({
       username: userData.name,
       phone: userData.number,
+      userImage: userData.userImg ? userData.userImg : '',
       productImg: imgUrl,
       userid: userData.uid,
       productTitle: productTitle,
@@ -131,6 +132,7 @@ const handleUpdateProduct = async ()=>{
     await productRef.doc(params?.id).update({
       username: userData.name,
       phone: userData.number,
+      userImage: userData.userImg ? userData.userImg : '',
       productImg: imgUrl,
       userid: userData.uid,
       productTitle: productTitle,
@@ -256,11 +258,11 @@ const renderHeader = () => (
           <Text style={styles.panelButtonTitle}>Take Photo</Text>
       </TouchableOpacity> */}
 
-      <TouchableOpacity style={styles.panelButton} onPress={choosePhotoFromLibrary}>
+      <TouchableOpacity style={styles.panelButton} className="bg-purple-600" onPress={choosePhotoFromLibrary}>
           <Text style={styles.panelButtonTitle}>Choose from Library</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.panelButton} onPress={() => bs.current.snapTo(1)}>
+      <TouchableOpacity style={styles.panelButton} className="bg-purple-600" onPress={() => bs.current.snapTo(1)}>
           <Text style={styles.panelButtonTitle}>Cancel</Text>
       </TouchableOpacity>
   </View>
@@ -505,7 +507,7 @@ const styles = StyleSheet.create({
   panelButton: {
       padding: 13,
       borderRadius: 15,
-      backgroundColor: '#4EB1B3',
+     
       alignItems: 'center',
       marginVertical: 7,
   },

@@ -8,6 +8,7 @@ import { auth, db } from '../firebase';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
+import Slider from '../components/Slider';
 
 
 
@@ -141,8 +142,15 @@ if (loading) {
                     paddingBottom: 150
                 }}
             >
+
+                {/* slider  */}
+                <Slider />
+
+                
                 {/* Categories */}
                 <Categories />
+
+                
 
                 {/* Mobile  */}
 
