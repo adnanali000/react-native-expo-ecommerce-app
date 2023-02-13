@@ -35,7 +35,7 @@ const Header = () => {
     },[])
 
   return (
-    <View className="flex-row pb-3 items-center mx-4 space-x-2">
+    <View className="flex-row pb-3 items-center mx-4 space-x-2 mt-4">
                 <Image
                     source={Logo}
                     className="h-7 w-7 bg-gray-300 p-4 rounded-full"

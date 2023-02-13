@@ -37,10 +37,10 @@ const onSignInPressed = ()=>{
 const userRef = db.collection('Users')
 
 const onSignUpPressed = ()=>{
-  if(userName && email && password && confirmPassword && number){
-    if(password != confirmPassword){
-        alert('password does not match')
-    }else{
+  if(userName && email && password && number){
+    // if(password != confirmPassword){
+    //     alert('password does not match')
+    // }else{
         setLoading(true)
         auth.createUserWithEmailAndPassword(email,password)
         .then(userCredentials => {
@@ -63,7 +63,7 @@ const onSignUpPressed = ()=>{
             },2000)
         })
         .catch(error => alert(error.message));
-    }
+    // }
     }else{
         alert('Invalid input')
     }   

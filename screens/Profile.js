@@ -53,7 +53,7 @@ const handleEditPassword = () => {
     <SafeAreaView className="flex-1 mb-[60px]">
       <ScrollView className="pb-[100px]">
       <View className="w-full flex items-end">
-        <TouchableOpacity onPress={HandleSignout} className="mr-4">
+        <TouchableOpacity onPress={HandleSignout} className="mt-12 mr-4">
         <MaterialIcons name="logout" size={30} color="gray" />
         </TouchableOpacity>
         </View>
