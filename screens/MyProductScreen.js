@@ -62,7 +62,7 @@ if (loading) {
 
 
     return (
-        <SafeAreaView className="bg-white pt-5">
+        <SafeAreaView className="bg-[#18191a] pt-5 flex-1">
             {/* header  */}
            <Header />
 
@@ -71,7 +71,7 @@ if (loading) {
 
             {/* Body */}
             <ScrollView
-                className="bg-gray-100"
+                className="bg-[#18191a]"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}
@@ -83,7 +83,7 @@ if (loading) {
                  (
                      <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-purple-600">Your Products</Text>
+                    <Text className="font-bold text-lg text-white">Your Products</Text>
                 </View>
                 
                     <VerticalCard data={products} dataRef="AllProducts" />
@@ -92,7 +92,7 @@ if (loading) {
                         
                         <>
                         <View className="flex items-center h-72 justify-center">
-                            <Text className="font-bold text-lg text-purple-600">No Products</Text>
+                            <Text className="font-bold text-lg text-white">No Products</Text>
                         </View>
                         </>
                      )

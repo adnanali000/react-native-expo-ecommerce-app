@@ -28,7 +28,7 @@ const Tabs = ()=>{
             screenOptions={{
                 headerShown:false,
                 tabBarStyle:{
-                    backgroundColor:'white',
+                    backgroundColor:'#18191a',
                     height:60,
                     position:'absolute',
                     bottom:0,
@@ -50,7 +50,7 @@ const Tabs = ()=>{
                                 justifyContent:'center',
                             }}
                         >
-                            <Ionicons name="md-home" size={30} style={{color:focused ? '#5e35b1':'gray'}} />
+                            <Ionicons name="md-home" size={30} style={{color:focused ? '#e8ca09':'gray'}} />
                         </View>
                     )
                 }}
@@ -66,7 +66,7 @@ const Tabs = ()=>{
                                 justifyContent:'center'
                             }}
                         >
-                            <Entypo name="heart" size={35} style={{color:focused ? '#5e35b1':'gray'}} />
+                            <Entypo name="heart" size={35} style={{color:focused ? '#e8ca09':'gray'}} />
                             
                         </View>
                     )
@@ -83,7 +83,7 @@ const Tabs = ()=>{
                                 justifyContent:'center'
                             }}
                         >
-                            <Entypo name="mobile" size={30} style={{color:focused ? '#5e35b1':'gray'}} />
+                            <Entypo name="mobile" size={30} style={{color:focused ? '#e8ca09':'gray'}} />
                         </View>
                     )
                 }}
@@ -100,7 +100,7 @@ const Tabs = ()=>{
                                 justifyContent:'center'
                             }}
                         >
-                            <EvilIcons name="user" size={40} style={{color:focused ? '#5e35b1':'gray'}} />
+                            <EvilIcons name="user" size={40} style={{color:focused ? '#e8ca09':'gray'}} />
                         </View>
                     )
                 }}

@@ -258,11 +258,11 @@ const renderHeader = () => (
           <Text style={styles.panelButtonTitle}>Take Photo</Text>
       </TouchableOpacity> */}
 
-      <TouchableOpacity style={styles.panelButton} className="bg-purple-600" onPress={choosePhotoFromLibrary}>
+      <TouchableOpacity style={styles.panelButton} className="bg-yellow-500" onPress={choosePhotoFromLibrary}>
           <Text style={styles.panelButtonTitle}>Choose from Library</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.panelButton} className="bg-purple-600" onPress={() => bs.current.snapTo(1)}>
+      <TouchableOpacity style={styles.panelButton} className="bg-yellow-500" onPress={() => bs.current.snapTo(1)}>
           <Text style={styles.panelButtonTitle}>Cancel</Text>
       </TouchableOpacity>
   </View>
@@ -281,7 +281,8 @@ if (loading) {
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
   }}>
-      <View className="flex-1 bg-white">
+      
+      <View className="flex-1 bg-[#18191a]">
           <BottomSheet
               ref={bs}
               snapPoints={[330, 0]}
@@ -303,11 +304,11 @@ if (loading) {
          
 
           <Animated.View  style={{ margin: 20, opacity: Animated.add(0.1, Animated.multiply(fall, 1.0)) }}>
-          <View className="">
+          <View className="mt-6">
                         <TouchableOpacity className="p-2 rounded-full"
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={34} color="black" />
+                            <AntDesign name="arrowleft" size={34} color="white" />
                         </TouchableOpacity>
             </View>
               
@@ -351,9 +352,14 @@ if (loading) {
               </View>
 
 
+              <ScrollView
+                contentContainerStyle={{
+                    paddingBottom: 200
+                }}
+            >
 
                 <View>
-                    <Text className="text-gray-600 text-lg">Product title</Text>
+                    <Text className="text-white text-lg">Product title</Text>
                 </View>
               <View style={styles.action}>
                   {/* <MaterialIcons name="title" size={24} color="gray" /> */}
@@ -369,7 +375,7 @@ if (loading) {
               </View>
 
               <View>
-                    <Text className="text-gray-600 text-lg">Product type <Text className="text-gray-400">(Laptop , Mobile or Gadgets)</Text></Text>
+                    <Text className="text-white text-lg">Product type <Text className="text-gray-600">(Laptop , Mobile or Gadgets)</Text></Text>
                 </View>
               <View style={styles.action}>
                   {/* <FontAwesome name="laptop" size={24} color="gray" /> */}
@@ -384,7 +390,7 @@ if (loading) {
               </View>
   
               <View>
-                    <Text className="text-gray-600 text-lg">Product condition</Text>
+                    <Text className="text-white text-lg">Product condition</Text>
                 </View>
               <View style={styles.action}>
                   {/* <FontAwesome name="star-o" size={24} color="gray" /> */}
@@ -399,7 +405,7 @@ if (loading) {
                   />
               </View>
               <View>
-                    <Text className="text-gray-600 text-lg">Product price</Text>
+                    <Text className="text-white text-lg">Product price</Text>
                 </View>
               <View style={styles.action}>
                   {/* <FontAwesome name="money" size={24} color="gray" /> */}
@@ -414,7 +420,7 @@ if (loading) {
                   />
               </View>
               <View>
-                    <Text className="text-gray-600 text-lg">Product description</Text>
+                    <Text className="text-white text-lg">Product description</Text>
                 </View>
               <View style={styles.action}>
                   {/* <MaterialIcons  name="description" size={24} color="gray" /> */}
@@ -432,20 +438,22 @@ if (loading) {
              
            
               {params ? 
-                <TouchableOpacity style={styles.commandButton} className="bg-purple-600" onPress={handleUpdateProduct}>
+                <TouchableOpacity style={styles.commandButton} className="bg-yellow-500" onPress={handleUpdateProduct}>
                   <Text style={styles.panelButtonTitle} >Update Product</Text>
                 </TouchableOpacity> : 
-                <TouchableOpacity style={styles.commandButton} className="bg-purple-600" onPress={handleAddProduct}>
+                <TouchableOpacity style={styles.commandButton} className="bg-yellow-500" onPress={handleAddProduct}>
                     <Text style={styles.panelButtonTitle} >Add Product</Text>
                 </TouchableOpacity>
           }
               {/* <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
                   <Text style={styles.panelButtonTitle} >Go Back</Text>
               </TouchableOpacity> */}
-
-              
+      </ScrollView>
           </Animated.View>
+        
       </View>
+
+     
   </TouchableWithoutFeedback>
   )
 }
@@ -536,6 +544,8 @@ const styles = StyleSheet.create({
       marginTop: Platform.OS === 'ios' ? 0 : -12,
       paddingLeft: 10,
       color: 'gray',
+      paddingBottom:4,
+      paddingTop:4
   },
   userImg: {
       height: 110,

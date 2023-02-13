@@ -21,7 +21,7 @@ const navigation = useNavigation();
     {data?.map((item)=>(
     <TouchableOpacity
     key={item.id}
-    className="bg-white mr-3 shadow"
+    className="bg-[#18191a] mr-3 shadow-lg border border-gray-800"
     onPress={() => navigation.navigate('ProductDetail',item)}
     >
         <View className="w-full flex items-center pt-2">
@@ -35,16 +35,16 @@ const navigation = useNavigation();
         </View>
 
         <View className="px-3 pb-4">
-            <Text className="font-bold text-lg pt-2">{item.productTitle}</Text>
+            <Text className="font-bold text-yellow-500 text-lg pt-2">{item.productTitle}</Text>
             <View className="flex-row items-center space-x-1">
                 <AntDesign name="star" size={18} color="#FF9529" />
-                <Text className="text-gray-500"> 
-                   <Text className="text-[#FF9529]">{item.productCondition}</Text> ~ {item.productType}
+                <Text className="text-white"> 
+                   <Text className="text-yellow-500">{item.productCondition}</Text> ~ {item.productType}
                 </Text>
             </View>
 
             <View className="flex-row items-center space-x-1 mt-1">
-                <Text numberOfLines={2} className="text-xs text-gray-500 w-[260px]">{item.productDes}</Text>
+                <Text numberOfLines={2} className="text-xs text-gray-300 w-[260px]">{item.productDes}</Text>
             </View>
         </View>
     </TouchableOpacity>

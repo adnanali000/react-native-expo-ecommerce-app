@@ -63,7 +63,7 @@ if (loading) {
 
 
     return (
-        <SafeAreaView className="bg-white pt-5">
+        <SafeAreaView className="bg-[#18191a] pt-5 flex-1">
             {/* header  */}
            <Header />
 
@@ -72,7 +72,7 @@ if (loading) {
 
             {/* Body */}
             <ScrollView
-                className="bg-gray-100"
+                className="bg-[#18191a]"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}
@@ -85,7 +85,7 @@ if (loading) {
 
                    <>
                   <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-lg text-purple-600">Your Favourit Products</Text>
+                    <Text className="font-bold text-lg text-white">Your Favourit Products</Text>
                 {/* <AntDesign name="arrowright" size={24} color="#4EB1B3" /> */}
                 </View>
                 
@@ -93,7 +93,7 @@ if (loading) {
                   </>
                    ): (
                     <View className="flex items-center h-72 justify-center">
-                      <Text className="font-bold text-lg text-purple-600">Your Favourit Product list is empty</Text>
+                      <Text className="font-bold text-lg text-white">Your Favourit Product list is empty</Text>
                     </View>
                    ) 
                 }

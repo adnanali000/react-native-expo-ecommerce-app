@@ -98,8 +98,8 @@ if (loading) {
   return (
 <>
 
-<View className="absolute bottom-10 z-50 w-full">
-            <TouchableOpacity onPress={dialCall} className="bg-purple-600 p-4 rounded-lg flex-row items-center space-x-1 mx-5">
+{/* <View className="absolute bottom-10 z-50 w-full">
+            <TouchableOpacity onPress={dialCall} className="bg-yellow-500 p-4 rounded-lg flex-row items-center space-x-1 mx-5">
                 <Text className="text-lg py-1 px-2">
                     <FontAwesome name='phone'  size={24} color="#fff" />
                 </Text>
@@ -108,10 +108,22 @@ if (loading) {
                     {userImage ? <Image source={{ uri: userImage }} style={{ width: 35, height: 35, borderRadius: 20 }} />: <FontAwesome name='user'  size={24} color="#fff" />}
                 </TouchableOpacity>
             </TouchableOpacity>
+        </View> */}
+
+<View className="absolute bottom-10 z-50 w-3/12 rounded-lg right-0">
+            <TouchableOpacity onPress={dialCall} className="bg-yellow-500 p-4 rounded-lg flex-row items-center justify-end mx-5">
+                <Text className="text-lg py-1 px-2 flex justify-end">
+                    <FontAwesome name='phone'  size={24} color="#fff" />
+                </Text>
+                {/* <Text className="flex-1 text-center text-white text-lg font-extrabold">{phone}</Text> */}
+                {/* <TouchableOpacity>
+                    {userImage ? <Image source={{ uri: userImage }} style={{ width: 35, height: 35, borderRadius: 20 }} />: <FontAwesome name='user'  size={24} color="#fff" />}
+                </TouchableOpacity> */}
+            </TouchableOpacity>
         </View>
 
 <ScrollView>
-    <View className="relative">
+    <View className="relative bg-[#18191a]">
       <View className="flex justify-center items-center w-full">
       <Image
         source={{
@@ -125,39 +137,39 @@ if (loading) {
       <TouchableOpacity className="absolute top-10 left-3 p-2 rounded-full"
         onPress={navigation.goBack}
       >
-        <AntDesign name="arrowleft" size={30} color="black" />
+        <AntDesign name="arrowleft" size={30} color="white" />
       </TouchableOpacity>
     </View>
 
-    <View className="bg-white">
+    <View className="bg-[#18191a]">
       <View className="px-4 pt-4">
         <View className="flex items-center justify-between flex-row">
-        <Text className="text-3xl text-black font-bold pb-2">{productTitle}</Text>
+        <Text className="text-3xl text-yellow-500 font-bold pb-2">{productTitle}</Text>
         <Entypo name="heart" onPress={handleFavourite} size={30} style={{color:focused ? 'red':'gray'}} /> 
         </View>
         <View className="flex-row space-x-2 my-1">
 
           <View className="flex-row items-center space-x-1">
             <AntDesign name="star" size={22} color="#FF9529" />
-            <Text className="text-gray-500">
-              <Text className="text-[#FF9529]">{productCondition}</Text> ~ {productType}
+            <Text className="text-white">
+              <Text className="text-yellow-500">{productCondition}</Text> ~ {productType}
             </Text>
           </View>
 
           <View className="flex-row items-center space-x-0.5">
             <Entypo name="location-pin" size={22} color="gray" />
-            <Text className="text-gray-500 w-[230px]" numberOfLines={1}>
+            <Text className="text-white w-[230px]" numberOfLines={1}>
                 Owner ~ {username}
             </Text>
           </View>
         </View>
-        <View className="flex-row items-center space-x-1">
+        <View className="flex-row items-center py-1 space-x-1">
             {/* <FontAwesome name="money" size={24} color="gray" /> */}
-            <Text className="text-purple-600 text-[16px]">
+            <Text className="text-yellow-500 text-[16px]">
             Rs.{productPrice}
             </Text>
           </View>
-        <Text className="text-gray-500 mt-2 pb-4">{productDes}</Text>
+        <Text className="text-white mt-2 pb-4">{productDes}</Text>
       </View>
     </View>
 
@@ -168,8 +180,8 @@ if (loading) {
       </View>
     ) :
     
-    <View className="pb-36">
-    <Text className="pt-6 px-4 mb-3 text-purple-600 font-bold text-xl">More {productType}s</Text>
+    <View className="pb-36 bg-[#18191a]">
+    <Text className="pt-6 px-4 mb-3 text-white font-bold text-xl">More {productType}s</Text>
 
     {/* dish row  */}
     {data && data.map((item) => (

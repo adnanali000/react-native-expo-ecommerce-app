@@ -21,7 +21,7 @@ export default [
         title:'Gadgets',
         description:'Tech Store is the most secure and hassle-free way to sell and buy Gadgets online.',
         // image:require('./assets/images/skarduGif.gif')
-        image:'https://i.gifer.com/origin/ba/bade1972e88bf167e6cff2b561aad9fc.gif'
+        image:'https://www.geeky-gadgets.com/wp-content/uploads/2015/09/3D-printed-headphones.gif'
 
     },
 

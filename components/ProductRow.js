@@ -32,12 +32,12 @@ const ProductRow = ({
     userid,
     username,
 })}
-                 className={`bg-white p-4 border border-gray-200 mt-2`}>
+                 className={`bg-[#18191a] p-4 border border-gray-800 mt-2 shadow-lg mx-2`}>
                 <View className="flex-row">
                     <View className="flex-1 pr-2">
-                        <Text className="text-lg mb-1 text-gray-800">{productTitle}</Text>
-                        <Text className="text-gray-400">{productDes}</Text>
-                        <Text className="text-purple-600 mt-2">
+                        <Text className="text-lg mb-1 text-yellow-500">{productTitle}</Text>
+                        <Text className="text-white">{productDes}</Text>
+                        <Text className="text-yellow-500 mt-2">
                             Rs.{productPrice}
                             {/* <Currency quantity={price} currency="PKR" /> */}
                         </Text>
@@ -49,9 +49,9 @@ const ProductRow = ({
                             }}
                             style={{
                                 borderWidth: 1,
-                                borderColor: "#F3F3F4"
+                                borderColor: "black"
                             }}
-                            className="h-20 w-20 bg-gray-300 p-4"
+                            className="h-20 w-20 p-4"
                         />
                     </View>
                 </View>

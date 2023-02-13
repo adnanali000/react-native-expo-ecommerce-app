@@ -83,20 +83,20 @@ if (loading) {
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
         }}>
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-            <View className="relative">
+            <View style={{ flex: 1, backgroundColor: '#18191a' }}>
+            <View className="relative mt-8">
                         <TouchableOpacity className="absolute top-5 left-3 p-2 rounded-full"
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={34} color="black" />
+                            <AntDesign name="arrowleft" size={34} color="white" />
                         </TouchableOpacity>
             </View>
                 <Animated.View className="mt-20 px-6">
-                    <Text className="text-xl font-bold text-gray-800">Password</Text>
+                    <Text className="text-xl font-bold text-white">Password</Text>
 
                   
                   <View className="mt-12">
-                    <Text className="text-[20px] text-gray-800">Current Password</Text>
+                    <Text className="text-[20px] text-white">Current Password</Text>
                   </View>
                     <View style={styles.action}>
                         {/* <FontAwesome name="envelope-o" size={24} color="gray" /> */}
@@ -112,7 +112,7 @@ if (loading) {
                     </View>
 
                     <View className="mt-6">
-                    <Text className="text-[20px] text-gray-800">New Password</Text>
+                    <Text className="text-[20px] text-white">New Password</Text>
                   </View>
                     <View style={styles.action}>
                         {/* <FontAwesome name="lock" size={24} color="gray" /> */}
@@ -127,7 +127,7 @@ if (loading) {
                         />
                     </View>
                    
-                    <TouchableOpacity className="bg-purple-600 mb-12" style={styles.commandButton} onPress={updatePassword}>
+                    <TouchableOpacity className="bg-yellow-500 mb-12" style={styles.commandButton} onPress={updatePassword}>
                         <Text style={styles.panelButtonTitle}>Confirm modification</Text>
                     </TouchableOpacity>
 
@@ -223,6 +223,8 @@ const styles = StyleSheet.create({
         marginTop: Platform.OS === 'ios' ? 0 : -12,
         paddingLeft: 10,
         color: 'gray',
+        paddingTop:2,
+        paddingBottom:2
     },
     userImg: {
         height: 150,

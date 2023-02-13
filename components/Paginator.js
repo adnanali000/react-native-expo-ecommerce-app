@@ -21,7 +21,7 @@ export default Paginator = ({data,scrollX}) => {
                 })
 
                 return <Animated.View
-                className="bg-purple-600" 
+                className="bg-yellow-500" 
                 style={[styles.dot, 
                     {
                         width:dotWidth,

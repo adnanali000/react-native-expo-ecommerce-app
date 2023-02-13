@@ -1,10 +1,12 @@
-import { View, Text,useWindowDimensions,Alert,SafeAreaView,ActivityIndicator, Image,ScrollView } from 'react-native'
+import { View, Text,useWindowDimensions,Alert,SafeAreaView,ActivityIndicator, Image,ScrollView,TouchableOpacity } from 'react-native'
 import React,{useEffect,useState,useLayoutEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 import Logo from '../assets/logo.png'
 import {auth,db} from '../firebase';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const SignupScreen = () => {
   const navigation = useNavigation()
@@ -14,6 +16,8 @@ const SignupScreen = () => {
   const [userName,setUserName] = useState('');
   const [number,setNumber] = useState('')
   const [confirmPassword,setConfirmPassword] = useState('')
+  const [showPassword,setShowPassword] = useState(false)
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -72,32 +76,41 @@ const onSignUpPressed = ()=>{
 
   return (
       <ScrollView showsVerticalScrollIndicator={false} >
-    <SafeAreaView className="flex-1 w-full bg-white justify-center items-center">
-    <View className="flex justify-center items-center mt-10">
-      <Text className="text-2xl text-gray-600 font-bold">Create an account</Text>
+    <SafeAreaView className="flex-1 w-full bg-[#18191a] justify-center items-center">
+    <View className="flex justify-center items-center mt-12">
+      <Text className="text-2xl text-white font-bold">Create an account</Text>
     </View>
     <View>
       <Image source={Logo} className="w-[100px] h-[120px]" resizeMode="contain" />
     </View>
    
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-gray-500">Full Name</Text>
+      <Text className="text-lg text-white">Full Name</Text>
       <CustomInput value={userName} setValue={setUserName} placeholder="Full name" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-gray-500">Email</Text>
+      <Text className="text-lg text-white">Email</Text>
       <CustomInput value={email} setValue={setEmail} placeholder="Email" />
     </View>  
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-gray-500">Contact No.</Text>
+      <Text className="text-lg text-white">Contact No.</Text>
       <CustomInput value={number} setValue={setNumber} placeholder="Phone" />
     </View>  
-    <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-gray-500">Password</Text>
-      <CustomInput value={password} setValue={setPassword} placeholder="Password" secureTextEntry={true} />
+    <View className="flex flex-col justify-start w-10/12 mt-1">
+      <View className="flex justify-between flex-row items-center w-full">
+        <View>
+        <Text className="text-lg text-white">Password</Text>
+        </View>
+        <View>
+          <TouchableOpacity onPress={()=>setShowPassword(!showPassword)}>
+            <Ionicons name={showPassword ? 'eye-outline':'eye-off-sharp'} size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+      </View>
+      <CustomInput value={password} setValue={setPassword} placeholder="Password" secureTextEntry={showPassword ? false : true} />
     </View>  
     {/* <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-gray-500">Cofirm Password</Text>
+      <Text className="text-lg text-white">Cofirm Password</Text>
       <CustomInput value={confirmPassword} setValue={setConfirmPassword} placeholder="Retype password" secureTextEntry={true} />
     </View>   */}
     <View className="w-10/12 py-2">
@@ -105,7 +118,7 @@ const onSignUpPressed = ()=>{
     <CustomButton onPress={onSignUpPressed} text="Sign Up" />
     </View>
     <View className="w-full flex items-center">
-    <Text className="text-lg text-gray-600 font-semibold">Already have an account ? <Text onPress={onSignInPressed} className="text-purple-600 font-bold ">Login</Text></Text>
+    <Text className="text-lg text-white font-semibold">Already have an account ? <Text onPress={onSignInPressed} className="text-yellow-500 font-bold ">Login</Text></Text>
   
     {/* <CustomButton text="Already have an account? Sign in" onPress={onSignInPressed} type="TERTIARY" /> */}
     </View> 

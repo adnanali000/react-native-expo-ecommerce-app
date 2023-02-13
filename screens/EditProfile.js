@@ -224,7 +224,7 @@ const EditProfile = ({navigation}) => {
     <TouchableWithoutFeedback onPress={() => {
         Keyboard.dismiss();
     }}>
-        <View className="flex-1 bg-white">
+        <View className="flex-1 bg-[#18191a]">
         
     <BottomSheet
                     ref={bs}
@@ -236,11 +236,11 @@ const EditProfile = ({navigation}) => {
                     enabledGestureInteraction={true}
                 />
                 <Animated.View style={{ margin: 20, opacity: Animated.add(0.1, Animated.multiply(fall, 1.0)) }}>
-                <View className="">
-                        <TouchableOpacity className="p-2 rounded-full"
+                <View className="mt-8">
+                        <TouchableOpacity
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={34} color="black" />
+                            <AntDesign name="arrowleft" size={34} color="white" />
                         </TouchableOpacity>
                     </View>
                   
@@ -333,7 +333,7 @@ const EditProfile = ({navigation}) => {
                         />
                     </View>
                    
-                    <TouchableOpacity className="bg-purple-600 mb-12" style={styles.commandButton} onPress={handleUpdate}>
+                    <TouchableOpacity className="bg-yellow-500 mb-12" style={styles.commandButton} onPress={handleUpdate}>
                         <Text style={styles.panelButtonTitle}>Confirm modification</Text>
                     </TouchableOpacity>
               {/* <TouchableOpacity style={styles.commandButton} className="bg-[#4EB1B3]" onPress={()=>navigation.goBack()}>
@@ -431,6 +431,8 @@ const styles = StyleSheet.create({
         marginTop: Platform.OS === 'ios' ? 0 : -12,
         paddingLeft: 10,
         color: 'gray',
+        paddingTop:2,
+        paddingBottom:2
     },
     userImg: {
         height: 150,

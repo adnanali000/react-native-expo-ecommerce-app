@@ -49,7 +49,7 @@ const OnboardingScreen = ({navigation})=>{
             
             <Paginator data={OnboardingData} scrollX={scrollX} />
             
-            <Pressable onPress={onStarted} className="bg-purple-600" style={styles.btn}>
+            <Pressable onPress={onStarted} className="bg-yellow-500" style={styles.btn}>
                 <Text style={styles.text}>Get Started</Text>
              </Pressable>
             
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'white'
+        backgroundColor:'#18191a'
         
     },
     title:{

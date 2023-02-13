@@ -30,7 +30,7 @@ const handleDelete = async (id)=>{
 
     {data?.map((item)=>(
    
-   <View key={item.id} className="bg-white my-2 shadow">
+   <View key={item.id} className="bg-[#18191a] my-2 shadow-lg border border-gray-800">
    
     <TouchableOpacity
    
@@ -50,28 +50,28 @@ const handleDelete = async (id)=>{
 
         <View className="px-3 pb-4">
             <View className="w-full flex-row pt-2 items-center justify-between">
-            <Text className="font-bold text-lg">{item.productTitle}</Text>
+            <Text className="font-bold text-lg text-yellow-500">{item.productTitle}</Text>
             <View className="flex-row space-x-4">
           
            {dataSourceRef == 'AllProducts' ? <TouchableOpacity onPress={()=>navigation.navigate("AddProduct",item)}>
-            <AntDesign name="edit" size={20} color="#4EB1B3"  />
+            <AntDesign name="edit" size={20} color="#e8ca09"  />
             </TouchableOpacity> : (<Text></Text>)}
             
             <TouchableOpacity onPress={()=>handleDelete(item.id)}>
-            <AntDesign name="delete" size={20} color="red"  />
+            <AntDesign name="delete" size={20} color="#b02e3b"  />
             </TouchableOpacity>
             </View>
             </View>
     
             <View className="flex-row items-center space-x-1">
                 <AntDesign name="star" size={18} color="#FF9529" />
-                <Text className="text-gray-500"> 
-                   <Text className="text-[#FF9529]">{item.productCondition}</Text> ~ {item.productType}
+                <Text className="text-white"> 
+                   <Text className="text-yellow-500">{item.productCondition}</Text> ~ {item.productType}
                 </Text>
             </View>
 
             <View className="flex-row items-center space-x-1 mt-1">
-                <Text numberOfLines={2} className="text-xs text-gray-500 w-[260px]">{item.productDes}</Text>
+                <Text numberOfLines={2} className="text-xs text-white w-[260px]">{item.productDes}</Text>
             </View>
         </View>    
     </View>

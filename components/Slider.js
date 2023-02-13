@@ -109,7 +109,7 @@ const Slider = () => {
 
                     const dotColor = dotPosition.interpolate({
                         inputRange:[index-1,index,index+1],
-                        outputRange:['#dedede','#5e35b1','#dedede'],
+                        outputRange:['#dedede','yellow','#dedede'],
                         extrapolate:'clamp'
                     })
                     return(

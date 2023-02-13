@@ -77,24 +77,24 @@ const SearchProduct = ({ navigation }) => {
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
         }}>
-            <SafeAreaView className="flex-1 bg-white">
+            <SafeAreaView className="flex-1 bg-[#18191a]">
 
-                    <View className="relative">
+                    <View className="relative mt-4">
                         <TouchableOpacity className="absolute top-5 left-3 p-2  rounded-full"
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={30} color="black" />
+                            <AntDesign name="arrowleft" size={30} color="white" />
                         </TouchableOpacity>
                     </View>
 
                     <View className="mt-16 py-2 px-10 mb-6">
-                        <Text className="text-black text-[30px] font-bold">Search</Text>
-                        <View className="flex-row space-x-2 rounded-full border mt-6 bg-purple-50 border-purple-600 p-3">
+                        <Text className="text-white text-[30px] font-bold">Search</Text>
+                        <View className="flex-row space-x-2 rounded-full border mt-6 bg-purple-50 border-gray-800 p-3">
                             <AntDesign name="search1" color="gray" size={20} />
                             <TextInput
                                 placeholder='What are you looking for ?'
                                 keyboardType='default'
-                                className="w-8/12 text-purple-800"
+                                className="w-8/12 text-gray-800"
                                 onChangeText={(text) => searchFilterFunction(text)}
                                 value={search}
                             />
@@ -102,7 +102,7 @@ const SearchProduct = ({ navigation }) => {
                     </View>
 
                     <ScrollView
-                className="bg-white px-4"
+                className="bg-[#18191a] px-4"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}
@@ -113,8 +113,8 @@ const SearchProduct = ({ navigation }) => {
                  {filteredDataSource.length > 0 ?
                  (
                      <>
-                  <View className="mt-4 flex-row items-center justify-between px-4">
-                    <Text className="font-bold text-[25px] text-gray-800">All Products</Text>
+                  <View className="my-2 flex-row items-center justify-between px-4">
+                    <Text className="font-bold text-[25px] text-white">All Products</Text>
                 </View>
                 
                     <SearchCards data={filteredDataSource}  />
