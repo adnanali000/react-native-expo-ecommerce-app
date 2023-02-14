@@ -2,7 +2,6 @@ import {ActivityIndicator, View, Pressable ,Text, SafeAreaView, Image, TextInput
 import React, { useEffect, useLayoutEffect,useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
-import Logo from '../assets/logo.png'
 import Categories from '../components/Categories';
 import { auth, db } from '../firebase';
 import ProductCard from '../components/ProductCard';
@@ -110,8 +109,8 @@ const HomeScreen = () => {
   
 if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="text-yellow-500" />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'black' }}>
+        <ActivityIndicator size="large" color="#e8ca09" />
       </View>
     );
   }
@@ -128,7 +127,7 @@ if (loading) {
 
 
     return (
-        <SafeAreaView className="bg-[#18191a] pt-5">
+        <SafeAreaView className="bg-[black] pt-5">
             {/* header  */}
             <Header />
 
@@ -137,7 +136,7 @@ if (loading) {
 
             {/* Body */}
             <ScrollView
-                className="bg-[#18191a]"
+                className="bg-[black]"
                 contentContainerStyle={{
                     paddingBottom: 150
                 }}

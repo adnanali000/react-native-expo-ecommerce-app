@@ -63,7 +63,7 @@ if (loading) {
 
 
     return (
-        <SafeAreaView className="bg-[#18191a] pt-5 flex-1">
+        <SafeAreaView className="bg-[black] pt-5 flex-1">
             {/* header  */}
            <Header />
 
@@ -72,7 +72,7 @@ if (loading) {
 
             {/* Body */}
             <ScrollView
-                className="bg-[#18191a]"
+                className="bg-[black]"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}

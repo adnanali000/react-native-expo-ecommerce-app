@@ -123,7 +123,7 @@ if (loading) {
         </View>
 
 <ScrollView>
-    <View className="relative bg-[#18191a]">
+    <View className="relative bg-[black]">
       <View className="flex justify-center items-center w-full">
       <Image
         source={{
@@ -141,7 +141,7 @@ if (loading) {
       </TouchableOpacity>
     </View>
 
-    <View className="bg-[#18191a]">
+    <View className="bg-[black]">
       <View className="px-4 pt-4">
         <View className="flex items-center justify-between flex-row">
         <Text className="text-3xl text-yellow-500 font-bold pb-2">{productTitle}</Text>
@@ -180,7 +180,7 @@ if (loading) {
       </View>
     ) :
     
-    <View className="pb-36 bg-[#18191a]">
+    <View className="pb-36 bg-[black]">
     <Text className="pt-6 px-4 mb-3 text-white font-bold text-xl">More {productType}s</Text>
 
     {/* dish row  */}

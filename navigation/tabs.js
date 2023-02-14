@@ -28,7 +28,7 @@ const Tabs = ()=>{
             screenOptions={{
                 headerShown:false,
                 tabBarStyle:{
-                    backgroundColor:'#18191a',
+                    backgroundColor:'black',
                     height:60,
                     position:'absolute',
                     bottom:0,

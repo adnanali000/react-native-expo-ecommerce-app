@@ -3,7 +3,7 @@ import React,{useEffect,useState,useLayoutEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
-import Logo from '../assets/logo.png'
+import Logo from '../assets/images/logo.jpg'
 import {auth,db} from '../firebase';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -76,12 +76,12 @@ const onSignUpPressed = ()=>{
 
   return (
       <ScrollView showsVerticalScrollIndicator={false} >
-    <SafeAreaView className="flex-1 w-full bg-[#18191a] justify-center items-center">
+    <SafeAreaView className="flex-1 w-full bg-[black] justify-center items-center">
     <View className="flex justify-center items-center mt-12">
       <Text className="text-2xl text-white font-bold">Create an account</Text>
     </View>
     <View>
-      <Image source={Logo} className="w-[100px] h-[120px]" resizeMode="contain" />
+      <Image source={Logo} className="w-[130px] h-[130px]" resizeMode="contain" />
     </View>
    
     <View className="flex flex-col justify-start w-10/12">

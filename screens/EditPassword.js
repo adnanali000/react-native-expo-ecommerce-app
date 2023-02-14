@@ -83,7 +83,7 @@ if (loading) {
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
         }}>
-            <View style={{ flex: 1, backgroundColor: '#18191a' }}>
+            <View style={{ flex: 1, backgroundColor: 'black' }}>
             <View className="relative mt-8">
                         <TouchableOpacity className="absolute top-5 left-3 p-2 rounded-full"
                             onPress={navigation.goBack}

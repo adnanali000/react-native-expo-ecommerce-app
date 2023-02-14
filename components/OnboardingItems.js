@@ -6,7 +6,7 @@ const Onboardingitems = ({item}) => {
 
     return (
         <View style={styles.container , {width}}>
-            <Image source={{uri:item.image}} style={[styles.image,{width,resizeMode:'contain'}]} />
+            <Image source={item.image} style={[styles.image,{width,resizeMode:'contain'}]} />
             <View style={{flex:0.3}}>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.description}>{item.description}</Text>

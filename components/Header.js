@@ -1,7 +1,7 @@
 import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/images/applogo.jpg'
 import { AntDesign } from '@expo/vector-icons';
 import { auth, db } from '../firebase';
 
@@ -38,14 +38,14 @@ const Header = () => {
     <View className="flex-row pb-3 items-center mx-4 space-x-2 mt-4">
                 <Image
                     source={Logo}
-                    className="h-7 w-7 bg-gray-300 p-4 rounded-full"
+                    className="h-8 w-8 p-4"
                 />
 
                 <View className="flex-1">
                     <Text className="font-bold text-white text-xs">Welcome!</Text>
                     <Text className="font-bold text-xl text-white">
-                        Tech Store
-                        <AntDesign name="down" size={18} color="gray" />
+                        FOSTER
+                        {/* <AntDesign name="down" size={18} color="gray" /> */}
                     </Text>
                 </View>
                 

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 import { auth } from '../firebase';
-import Logo from '../assets/logo.png'
+import Logo from '../assets/images/logo.jpg'
 import { Ionicons } from '@expo/vector-icons';
 
 const SigninScreen = () => {
@@ -64,13 +64,13 @@ const onSignUpPressed = ()=>{
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
   }}>
-         <SafeAreaView className="flex-1 bg-[#18191a] justify-center items-center pb-20">
+         <SafeAreaView className="flex-1 bg-[black] justify-center items-center pb-20">
 
          <View className="flex justify-center items-center mt-10">
       <Text className="text-2xl text-white font-bold">Login In</Text>
     </View>
     <View>
-      <Image source={Logo} className="w-[100px] h-[120px]" resizeMode="contain" />
+      <Image source={Logo} className="w-[150px] h-[150px]" resizeMode="contain" />
     </View>
     <View className="flex flex-col justify-start w-10/12">
       <Text className="text-lg text-white">Email</Text>

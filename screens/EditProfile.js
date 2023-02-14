@@ -224,7 +224,7 @@ const EditProfile = ({navigation}) => {
     <TouchableWithoutFeedback onPress={() => {
         Keyboard.dismiss();
     }}>
-        <View className="flex-1 bg-[#18191a]">
+        <View className="flex-1 bg-[black]">
         
     <BottomSheet
                     ref={bs}

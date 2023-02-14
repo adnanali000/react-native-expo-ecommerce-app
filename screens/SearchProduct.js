@@ -67,8 +67,8 @@ const SearchProduct = ({ navigation }) => {
 
       if (loading) {
         return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <ActivityIndicator size="large" color="#5e35b1" />
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'black' }}>
+            <ActivityIndicator size="large" color="#e8ca09" />
           </View>
         );
       }
@@ -77,7 +77,7 @@ const SearchProduct = ({ navigation }) => {
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
         }}>
-            <SafeAreaView className="flex-1 bg-[#18191a]">
+            <SafeAreaView className="flex-1 bg-[black]">
 
                     <View className="relative mt-4">
                         <TouchableOpacity className="absolute top-5 left-3 p-2  rounded-full"
@@ -102,7 +102,7 @@ const SearchProduct = ({ navigation }) => {
                     </View>
 
                     <ScrollView
-                className="bg-[#18191a] px-4"
+                className="bg-[black] px-4"
                 contentContainerStyle={{
                     paddingBottom: 100
                 }}
@@ -123,7 +123,7 @@ const SearchProduct = ({ navigation }) => {
                         
                         <>
                         <View className="flex items-center h-72 justify-center">
-                            <Text className="font-bold text-lg text-purple-600">No Products</Text>
+                            <Text className="font-bold text-lg text-yellow-600">No Products</Text>
                         </View>
                         </>
                      )

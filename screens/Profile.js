@@ -50,7 +50,7 @@ const handleEditPassword = () => {
   navigation.navigate('EditPassword')
 }
   return (
-    <SafeAreaView className="flex-1 mb-[60px] bg-[#18191a]">
+    <SafeAreaView className="flex-1 mb-[60px] bg-[black]">
       <ScrollView className="pb-[100px]">
       <View className="w-full flex items-end">
         <TouchableOpacity onPress={HandleSignout} className="mt-12 mr-4">

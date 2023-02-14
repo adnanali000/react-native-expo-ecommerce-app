@@ -48,7 +48,7 @@ const Slider = () => {
                             }}>
 
                                 <ImageBackground
-                                    source={{uri:item?.image && item.image}}
+                                    source={item?.image && item.image}
                                     resizeMode='cover'
                                     style={{
                                         width:width * 0.85,
