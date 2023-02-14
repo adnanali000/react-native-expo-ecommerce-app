@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ecommerce-app",
-    "slug": "ecommerce-app",
+    "name": "Foster",
+    "slug": "Foster",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,7 +27,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.jpg"
     },
     "plugins": [
       [

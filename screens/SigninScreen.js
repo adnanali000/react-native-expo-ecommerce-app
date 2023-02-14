@@ -70,7 +70,7 @@ const onSignUpPressed = ()=>{
       <Text className="text-2xl text-white font-bold">Login In</Text>
     </View>
     <View>
-      <Image source={Logo} className="w-[150px] h-[150px]" resizeMode="contain" />
+      <Image source={Logo} className="w-[120px] h-[120px]" resizeMode="contain" />
     </View>
     <View className="flex flex-col justify-start w-10/12">
       <Text className="text-lg text-white">Email</Text>

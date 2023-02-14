@@ -2,7 +2,6 @@ import {ActivityIndicator, View, Pressable ,Text, SafeAreaView, Image,Alert, Tex
 import React, { useEffect, useLayoutEffect,useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
-import Logo from '../assets/logo.png'
 import Categories from '../components/Categories';
 import { auth, db } from '../firebase';
 import VerticalCard from '../components/VerticalCard';

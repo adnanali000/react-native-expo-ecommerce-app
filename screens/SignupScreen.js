@@ -81,7 +81,7 @@ const onSignUpPressed = ()=>{
       <Text className="text-2xl text-white font-bold">Create an account</Text>
     </View>
     <View>
-      <Image source={Logo} className="w-[130px] h-[130px]" resizeMode="contain" />
+      <Image source={Logo} className="w-[110px] h-[110px]" resizeMode="contain" />
     </View>
    
     <View className="flex flex-col justify-start w-10/12">
