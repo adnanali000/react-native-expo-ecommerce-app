@@ -67,23 +67,23 @@ const onSignUpPressed = ()=>{
          <SafeAreaView className="flex-1 bg-[black] justify-center items-center pb-20">
 
          <View className="flex justify-center items-center mt-10">
-      <Text className="text-2xl text-white font-bold">Login In</Text>
+      <Text className="text-2xl text-[#606060] font-bold">Login In</Text>
     </View>
     <View>
       <Image source={Logo} className="w-[120px] h-[120px]" resizeMode="contain" />
     </View>
     <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-white">Email</Text>
+      {/* <Text className="text-lg text-white">Email</Text> */}
       <CustomInput value={email} setValue={setEmail} placeholder="Email" />
     </View>  
     <View className="flex flex-col justify-start w-10/12 mt-2">
       <View className="flex justify-between flex-row items-center w-full">
         <View>
-        <Text className="text-lg text-white">Password</Text>
+        {/* <Text className="text-lg text-white">Password</Text> */}
         </View>
         <View>
           <TouchableOpacity onPress={()=>setShowPassword(!showPassword)}>
-            <Ionicons name={showPassword ? 'eye-outline':'eye-off-sharp'} size={24} color="white" />
+            <Ionicons name={showPassword ? 'eye-outline':'eye-off-sharp'} size={24} color="#606060" />
           </TouchableOpacity>
         </View>
       </View>
@@ -93,7 +93,7 @@ const onSignUpPressed = ()=>{
     <CustomButton onPress={onSignInPressed} text="Sign In" />
     </View>
     <View className="w-full flex items-center pb-20 text-center">
-      <Text className="text-lg text-white font-semibold">Don't have an account ? <Text onPress={onSignUpPressed} className="text-yellow-500 font-bold ">Sign up</Text></Text>
+      <Text className="text-lg text-[#606060] font-semibold">Don't have an account ? <Text onPress={onSignUpPressed} className="text-yellow-500 font-bold ">Sign up</Text></Text>
     {/* <CustomButton text="Don't have an account? Create one" onPress={onSignUpPressed} type="TERTIARY" /> */}
     </View> 
     </SafeAreaView>

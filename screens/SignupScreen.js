@@ -75,35 +75,35 @@ const onSignUpPressed = ()=>{
 
 
   return (
-      <ScrollView showsVerticalScrollIndicator={false} >
+      <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:'black'}} >
     <SafeAreaView className="flex-1 w-full bg-[black] justify-center items-center">
-    <View className="flex justify-center items-center mt-12">
-      <Text className="text-2xl text-white font-bold">Create an account</Text>
+    <View className="flex justify-center items-center mt-16">
+      <Text className="text-2xl text-[#606060] font-bold">Create an account</Text>
     </View>
     <View>
       <Image source={Logo} className="w-[110px] h-[110px]" resizeMode="contain" />
     </View>
    
-    <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-white">Full Name</Text>
+    <View className="flex flex-col justify-start w-10/12" style={{marginTop:40}} >
+      {/* <Text className="text-lg text-white">Full Name</Text> */}
       <CustomInput value={userName} setValue={setUserName} placeholder="Full name" />
     </View>  
-    <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-white">Email</Text>
+    <View className="flex flex-col justify-start w-10/12" style={{marginTop:40}}>
+      {/* <Text className="text-lg text-white">Email</Text> */}
       <CustomInput value={email} setValue={setEmail} placeholder="Email" />
     </View>  
-    <View className="flex flex-col justify-start w-10/12">
-      <Text className="text-lg text-white">Contact No.</Text>
+    <View className="flex flex-col justify-start w-10/12" style={{marginTop:40}}>
+      {/* <Text className="text-lg text-white">Contact No.</Text> */}
       <CustomInput value={number} setValue={setNumber} placeholder="Phone" />
     </View>  
     <View className="flex flex-col justify-start w-10/12 mt-1">
       <View className="flex justify-between flex-row items-center w-full">
         <View>
-        <Text className="text-lg text-white">Password</Text>
+        {/* <Text className="text-lg text-white">Password</Text> */}
         </View>
-        <View>
+        <View style={{marginTop:25}}>
           <TouchableOpacity onPress={()=>setShowPassword(!showPassword)}>
-            <Ionicons name={showPassword ? 'eye-outline':'eye-off-sharp'} size={24} color="white" />
+            <Ionicons name={showPassword ? 'eye-outline':'eye-off-sharp'} size={24} color="#606060" />
           </TouchableOpacity>
         </View>
       </View>
@@ -113,12 +113,12 @@ const onSignUpPressed = ()=>{
       <Text className="text-lg text-white">Cofirm Password</Text>
       <CustomInput value={confirmPassword} setValue={setConfirmPassword} placeholder="Retype password" secureTextEntry={true} />
     </View>   */}
-    <View className="w-10/12 py-2">
+    <View className="w-10/12 py-2" style={{marginTop:40}}>
 
     <CustomButton onPress={onSignUpPressed} text="Sign Up" />
     </View>
     <View className="w-full flex items-center">
-    <Text className="text-lg text-white font-semibold">Already have an account ? <Text onPress={onSignInPressed} className="text-yellow-500 font-bold ">Login</Text></Text>
+    <Text className="text-lg text-[#606060] font-semibold">Already have an account ? <Text onPress={onSignInPressed} className="text-yellow-500 font-bold ">Login</Text></Text>
   
     {/* <CustomButton text="Already have an account? Sign in" onPress={onSignInPressed} type="TERTIARY" /> */}
     </View> 

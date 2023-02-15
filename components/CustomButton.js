@@ -4,7 +4,7 @@ import { View, Text , StyleSheet ,Pressable } from 'react-native'
 const CustomButton = ({onPress,text,type="PRIMARY"}) => {
     return (
         <Pressable onPress={onPress} className="bg-yellow-500"  style={[styles.container]}>
-            <Text className="text-white font-bold">{text}</Text>
+            <Text className="text-[#606060] font-bold">{text}</Text>
         </Pressable>
     )
 }
