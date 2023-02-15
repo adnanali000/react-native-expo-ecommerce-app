@@ -111,9 +111,9 @@ if (loading) {
         </View> */}
 
 <View className="absolute bottom-10 z-50 w-3/12 rounded-lg right-0">
-            <TouchableOpacity onPress={dialCall} className="bg-yellow-500 p-4 rounded-lg flex-row items-center justify-end mx-5">
-                <Text className="text-lg py-1 px-2 flex justify-end">
-                    <FontAwesome name='phone'  size={24} color="#fff" />
+            <TouchableOpacity onPress={dialCall} className="bg-yellow-500 p-2 rounded-lg flex-row items-center justify-end mx-5">
+                <Text className="text-lg py-1 px-3 flex justify-end">
+                    <FontAwesome name='phone'  size={25} color="#fff" />
                 </Text>
                 {/* <Text className="flex-1 text-center text-white text-lg font-extrabold">{phone}</Text> */}
                 {/* <TouchableOpacity>

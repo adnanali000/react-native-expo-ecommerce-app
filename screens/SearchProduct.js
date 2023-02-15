@@ -94,10 +94,10 @@ const SearchProduct = ({ navigation }) => {
                             <TextInput
                                 placeholder='What are you looking for?'
                                 keyboardType='default'
-                                // className="w-8/12 text-[7c8084]"
+                                className="w-8/12 text-[606060]"
                                 onChangeText={(text) => searchFilterFunction(text)}
                                 value={search}
-                                placeholderTextColor='#a1a4a8'
+                                placeholderTextColor='#606060'
                             />
                         </View>
                     </View>

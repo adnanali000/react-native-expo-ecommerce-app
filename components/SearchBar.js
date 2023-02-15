@@ -15,7 +15,7 @@ const SearchBar = () => {
     </TouchableOpacity>
 
     <View className="mr-2">    
-    <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="#45474" />
+    <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="#606060" />
     </View>
 </View>
   )
