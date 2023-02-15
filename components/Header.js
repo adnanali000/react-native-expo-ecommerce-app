@@ -42,7 +42,7 @@ const Header = () => {
                 />
 
                 <View className="flex-1">
-                    <Text className="font-bold text-white text-xs">Welcome!</Text>
+                    {/* <Text className="font-bold text-white text-xs">Welcome to</Text> */}
                     <Text className="font-bold text-xl text-yellow-400">
                         FOSTER
                         {/* <AntDesign name="down" size={18} color="gray" /> */}

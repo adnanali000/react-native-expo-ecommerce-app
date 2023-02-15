@@ -308,7 +308,7 @@ if (loading) {
                         <TouchableOpacity className="p-2 rounded-full"
                             onPress={navigation.goBack}
                         >
-                            <AntDesign name="arrowleft" size={34} color="white" />
+                            <AntDesign name="arrowleft" size={34} color="#606060" />
                         </TouchableOpacity>
             </View>
               
@@ -325,7 +325,8 @@ if (loading) {
                       }}>
                           <ImageBackground
                               source={{
-                                  uri: image ? image : params ? params.productImg :'https://static.vecteezy.com/system/resources/previews/006/086/014/original/picture-gallery-interface-icon-vector.jpg'}}
+                                  uri: image ?? image //: params ? params.productImg :'https://static.vecteezy.com/system/resources/previews/006/086/014/original/picture-gallery-interface-icon-vector.jpg'
+                                }}
                                 //   'data:image/png;base64,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',}}
                               style={styles.userImg}
                               imageStyle={{ borderRadius: 75 }}
@@ -359,9 +360,10 @@ if (loading) {
             >
 
                 <View>
-                    <Text className="text-white text-lg">Product title</Text>
+                    {/* <Text className="text-white text-lg">Product title</Text> */}
                 </View>
-              <View style={styles.action}>
+             <View style={{marginTop:60}}>
+             <View style={styles.action}>
                   {/* <MaterialIcons name="title" size={24} color="gray" /> */}
                   
                   <TextInput
@@ -373,14 +375,16 @@ if (loading) {
                       onChangeText={(txt) => setProductTitle(txt)}
                   />
               </View>
+             </View>
 
-              <View>
-                    <Text className="text-white text-lg">Product type <Text className="text-gray-600">(Laptop , Mobile or Gadgets)</Text></Text>
-                </View>
+              {/* <View> */}
+                    {/* <Text className="text-white text-lg">Product type <Text className="text-gray-600">(Laptop , Mobile or Gadgets)</Text></Text> */}
+                {/* </View> */}
+              <View style={{marginTop:15}}>
               <View style={styles.action}>
                   {/* <FontAwesome name="laptop" size={24} color="gray" /> */}
                   <TextInput
-                      placeholder='Type'
+                      placeholder='Product type (Laptop, Mobile, Gadgets)'
                       placeholderTextColor="gray"
                       style={styles.textInput}
                       autoCorrect={false}
@@ -388,10 +392,12 @@ if (loading) {
                       onChangeText={(txt) => setProductType(txt)}
                   />
               </View>
+              </View>
   
-              <View>
-                    <Text className="text-white text-lg">Product condition</Text>
-                </View>
+              {/* <View> */}
+                    {/* <Text className="text-white text-lg">Product condition</Text> */}
+                {/* </View> */}
+              <View style={{marginTop:15}}>
               <View style={styles.action}>
                   {/* <FontAwesome name="star-o" size={24} color="gray" /> */}
                   <TextInput
@@ -404,9 +410,11 @@ if (loading) {
                       onChangeText={(txt) => setProductCondition(txt)}
                   />
               </View>
-              <View>
-                    <Text className="text-white text-lg">Product price</Text>
-                </View>
+              </View>
+              {/* <View> */}
+                    {/* <Text className="text-white text-lg">Product price</Text> */}
+                {/* </View> */}
+              <View style={{marginTop:15}}>
               <View style={styles.action}>
                   {/* <FontAwesome name="money" size={24} color="gray" /> */}
                   <TextInput
@@ -419,13 +427,15 @@ if (loading) {
                       onChangeText={(txt) => setProductPrice(txt)}
                   />
               </View>
-              <View>
-                    <Text className="text-white text-lg">Product description</Text>
-                </View>
-              <View style={styles.action}>
+              </View>
+              {/* <View> */}
+                    {/* <Text className="text-white text-lg">Product description</Text> */}
+                {/* </View> */}
+             <View style={{marginTop:15}}>
+             <View style={styles.action}>
                   {/* <MaterialIcons  name="description" size={24} color="gray" /> */}
                   <TextInput
-                      placeholder='Product Desc'
+                      placeholder='Product Description'
                       placeholderTextColor="gray"
                       style={[styles.textInput, { height: 80, textAlignVertical: 'top' }]}
                       autoCorrect={false}
@@ -435,6 +445,7 @@ if (loading) {
                       onChangeText={(txt) => setProductDes(txt)}
                   />
               </View>
+             </View>
              
            
               {params ? 

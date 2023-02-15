@@ -13,7 +13,8 @@ const CustomInput = ({value,setValue,placeholder,secureTextEntry}) => {
             className="text-gray-600"
             style={{
                 backgroundColor:'#18191a', 
-                height:45
+                height:45,
+                paddingLeft:10
         }}
             />
         </View>

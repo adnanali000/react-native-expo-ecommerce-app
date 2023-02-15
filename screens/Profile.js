@@ -65,8 +65,8 @@ const handleEditPassword = () => {
             <View className="w-full flex-col justify-start">
               {/* <View className="w-full flex-row items-center justify-between"> */}
               <View className="w-full flex-row items-center justify-between">
-                <Text className="text-white text-lg font-bold">User name</Text>
-                <Text className="text-white text-semibold" onPress={handleEditProfile}>Change</Text>
+                <Text className="text-[#606060]  text-lg font-bold">User name</Text>
+                <Text className="text-[#606060] text-semibold" onPress={handleEditProfile}>Edit</Text>
               </View>
                 {/* <Entypo name="edit" size={20} color="gray" onPress={handleEditProfile} /> */}
               <Text className="text-yellow-500 font-bold text-lg flex">{`${userData ? userData.name || 'No details added' : ''}`}</Text>
@@ -74,8 +74,8 @@ const handleEditPassword = () => {
             </View>
             <View className="w-full flex-col justify-start mt-3">
               <View className="w-full flex-row items-center justify-between">
-              <Text className="text-white text-lg font-bold">Email</Text>
-              <Text className="text-white text-semibold" onPress={handleEditEmail}>Change</Text>
+              <Text className="text-[#606060]  text-lg font-bold">Email</Text>
+              <Text className="text-[#606060] text-semibold" onPress={handleEditEmail}>Edit</Text>
               {/* <Entypo name="edit" size={20} color="gray" onPress={handleEditEmail} /> */}
             
               </View>
@@ -83,29 +83,29 @@ const handleEditPassword = () => {
             </View>
             <View className="w-full flex-col justify-start mt-3">
             <View className="w-full flex-row items-center justify-between">
-                <Text className="text-white text-lg font-bold">Phone</Text>
-                <Text className="text-white text-semibold" onPress={handleEditProfile}>Change</Text>
+                <Text className="text-[#606060]  text-lg font-bold">Phone</Text>
+                <Text className="text-[#606060] text-semibold" onPress={handleEditProfile}>Edit</Text>
               </View>
               <Text className="font-bold text-lg .border-b text-yellow-500 flex">{`${userData ? userData.number || 'No details added' : ''}`}</Text>
             </View>
             <View className="w-full flex-col justify-start mt-3">
             <View className="w-full flex-row items-center justify-between">
-                <Text className="text-white text-lg font-bold">Password</Text>
-                <Text className="text-white text-semibold" onPress={handleEditPassword}>Change</Text>
+                <Text className="text-[#606060]  text-lg font-bold">Password</Text>
+                <Text className="text-[#606060] text-semibold" onPress={handleEditPassword}>Edit</Text>
               </View>
               <Text className="font-bold text-lg .border-b text-yellow-500 flex">********</Text>
             </View>
             <View className="w-full flex-col justify-start mt-3">
             <View className="w-full flex-row items-center justify-between">
-                <Text className="text-white text-lg font-bold">Country</Text>
-                <Text className="text-white text-semibold" onPress={handleEditProfile}>Change</Text>
+                <Text className="text-[#606060]  text-lg font-bold">Country</Text>
+                <Text className="text-[#606060] text-semibold" onPress={handleEditProfile}>Edit</Text>
               </View>
               <Text className="font-bold text-lg .border-b flex text-yellow-500">{`${userData ? userData.country || 'No details added' : ''}`}</Text>
             </View>
             <View className="w-full flex-col justify-start mt-3">
             <View className="w-full flex-row items-center justify-between">
-                <Text className="text-white text-lg font-bold">City</Text>
-                <Text className="text-white text-semibold" onPress={handleEditProfile}>Change</Text>
+                <Text className="text-[#606060] text-lg font-bold">City</Text>
+                <Text className="text-[#606060] text-semibold" onPress={handleEditProfile}>Edit</Text>
               </View>
               <Text className="font-bold text-lg .border-b flex text-yellow-500 pb-2">{`${userData ? userData.city || 'No details added' : ''}`}</Text>
             </View>

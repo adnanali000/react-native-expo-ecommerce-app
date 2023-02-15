@@ -92,7 +92,7 @@ if (loading) {
                   </>
                    ): (
                     <View className="flex items-center h-72 justify-center">
-                      <Text className="font-bold text-lg text-white">Your Favourit Product list is empty</Text>
+                      <Text className="font-bold text-lg text-[#606060]">Your Favourit Product list is empty</Text>
                     </View>
                    ) 
                 }

@@ -92,7 +92,7 @@ if (loading) {
                         
                         <>
                         <View className="flex items-center h-72 justify-center">
-                            <Text className="font-bold text-lg text-white">No Products</Text>
+                            <Text className="font-bold text-lg text-[#606060]">No Products</Text>
                         </View>
                         </>
                      )
