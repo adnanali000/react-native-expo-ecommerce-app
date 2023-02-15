@@ -9,13 +9,13 @@ const SearchBar = () => {
 
   return (
     <View className="flex-row items-center space-x-2 pb-2 px-4 justify-between">
-    <TouchableOpacity onPress={()=>navigation.navigate('SearchProduct')} className="bg-white rounded flex-row w-10/12 p-2 justify-center items-center space-x-2">
+    <TouchableOpacity onPress={()=>navigation.navigate('SearchProduct')} className="bg-[#18191a] rounded flex-row w-10/12 p-2 justify-center items-center space-x-2">
         <AntDesign name="search1" color="gray" size={20} />
-        <Text className="text-gray-600">What are you looking for ?</Text>
+        <Text className="text-gray-600">What are you looking for?</Text>
     </TouchableOpacity>
 
     <View className="mr-2">    
-    <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="white" />
+    <AntDesign name="pluscircle" onPress={()=>navigation.navigate('AddProduct')} size={30} color="#45474" />
     </View>
 </View>
   )

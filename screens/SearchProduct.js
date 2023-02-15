@@ -89,14 +89,15 @@ const SearchProduct = ({ navigation }) => {
 
                     <View className="mt-16 py-2 px-10 mb-6">
                         <Text className="text-white text-[30px] font-bold">Search</Text>
-                        <View className="flex-row space-x-2 rounded-full border mt-6 bg-purple-50 border-gray-800 p-3">
-                            <AntDesign name="search1" color="gray" size={20} />
+                        <View className="flex-row space-x-2 rounded-full border mt-6 bg-[#18191a] border-gray-800 p-3 justify-center " >
+                            <AntDesign name="search1" color="#7c8084" size={20} style={{marginTop:5}} />
                             <TextInput
-                                placeholder='What are you looking for ?'
+                                placeholder='What are you looking for?'
                                 keyboardType='default'
-                                className="w-8/12 text-gray-800"
+                                // className="w-8/12 text-[7c8084]"
                                 onChangeText={(text) => searchFilterFunction(text)}
                                 value={search}
+                                placeholderTextColor='#a1a4a8'
                             />
                         </View>
                     </View>
